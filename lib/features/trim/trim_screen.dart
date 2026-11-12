@@ -234,6 +234,14 @@ class _TrimScreenState extends State<TrimScreen> {
     }
   }
 
+  /// m:ss.d — a running clock with tenths of a second.
+  String _clock(Duration d) {
+    final tenths = d.inMilliseconds ~/ 100;
+    final m = tenths ~/ 600;
+    final sec = (tenths % 600) ~/ 10;
+    return '$m:${sec.toString().padLeft(2, '0')}.${tenths % 10}';
+  }
+
   void _toast(String message) {
     if (!mounted) return;
     ScaffoldMessenger.of(context)
@@ -297,7 +305,7 @@ class _TrimScreenState extends State<TrimScreen> {
                                   active: NocturneColors.accent,
                                   inactive: NocturneColors.neutral700,
                                   cursorColor: NocturneColors.textMuted(0.95),
-                                  liveColor: NocturneColors.textMuted(0.5),
+                                  liveColor: NocturneColors.accent,
                                 ),
                               ),
                             ),
@@ -343,20 +351,46 @@ class _TrimScreenState extends State<TrimScreen> {
                             enabledThumbRadius: _thumb,
                           ),
                         ),
-                        child: Slider(
-                          value: _previewFrom.inMilliseconds.toDouble().clamp(
-                            _range.start,
-                            _range.end,
+                        // Same 0..length scale as the waveform above, so this
+                        // thumb sits exactly under the line it controls, and
+                        // it moves along with playback while previewing.
+                        child: ValueListenableBuilder<Duration?>(
+                          valueListenable: _live,
+                          builder: (context, live, _) => Slider(
+                            value: (live ?? _previewFrom).inMilliseconds
+                                .toDouble()
+                                .clamp(0, totalMs),
+                            min: 0,
+                            max: totalMs,
+                            onChanged: _busy
+                                ? null
+                                : (v) => _setCursor(
+                                    Duration(milliseconds: v.round()),
+                                  ),
                           ),
-                          min: _range.start,
-                          max: _range.end > _range.start
-                              ? _range.end
-                              : _range.start + 1,
-                          onChanged: _busy
-                              ? null
-                              : (v) => _setCursor(
-                                  Duration(milliseconds: v.round()),
-                                ),
+                        ),
+                      ),
+                    // Running time: where playback is while previewing, else
+                    // where the preview will start.
+                    if (ready)
+                      ValueListenableBuilder<Duration?>(
+                        valueListenable: _live,
+                        builder: (context, live, _) => Padding(
+                          padding: const EdgeInsets.only(top: 4),
+                          child: Center(
+                            child: Text(
+                              '${_clock(live ?? _previewFrom)} / ${_clock(_total)}',
+                              style: TextStyle(
+                                fontSize: 14,
+                                fontFeatures: const [
+                                  FontFeature.tabularFigures(),
+                                ],
+                                color: live != null
+                                    ? NocturneColors.accent
+                                    : NocturneColors.textMuted(0.6),
+                              ),
+                            ),
+                          ),
                         ),
                       ),
                     const SizedBox(height: 10),
@@ -622,23 +656,19 @@ class _WaveformPainter extends CustomPainter {
     }
     if (totalMs <= 0) return;
 
+    // One line only. While previewing it is the moving playhead; otherwise it
+    // marks where the preview will start. (Drawing both left a second,
+    // fixed line behind the moving one.)
     final pos = live.value;
-    if (pos != null) {
-      final x = _x((pos.inMilliseconds / totalMs).clamp(0.0, 1.0), size.width);
-      canvas.drawLine(
-        Offset(x, 0),
-        Offset(x, size.height),
-        Paint()
-          ..color = liveColor
-          ..strokeWidth = 1.5,
-      );
-    }
-    final cx = _x(cursor.clamp(0.0, 1.0), size.width);
+    final frac = pos != null
+        ? (pos.inMilliseconds / totalMs).clamp(0.0, 1.0)
+        : cursor.clamp(0.0, 1.0);
+    final cx = _x(frac, size.width);
     canvas.drawLine(
       Offset(cx, 0),
       Offset(cx, size.height),
       Paint()
-        ..color = cursorColor
+        ..color = pos != null ? liveColor : cursorColor
         ..strokeWidth = 2,
     );
   }
