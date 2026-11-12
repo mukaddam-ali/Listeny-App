@@ -14,7 +14,7 @@
 
 **Your audio, on your phone, without the cloud.**
 
-A private audio player for Android. No account, no ads, no tracking, and it works without internet.
+A private audio player for Android. **No ads, no account, no tracking**, and it works without internet. It can also download audio from direct links.
 
 <br/>
 
@@ -30,10 +30,54 @@ Version 1.3.1 &nbsp;·&nbsp; Android 7.0 or newer &nbsp;·&nbsp; about 150 MB
 
 Most players want you to sign in, sync to a server or stream everything. Listeny does the opposite. You bring the recordings you already have, it keeps them on your phone, and from then on everything works offline: browsing, searching, playlists, background playback and the lock-screen controls.
 
+- **No ads.** None, and no trackers or analytics either.
 - **Private by design.** Nothing is uploaded. The library is a database that lives on your phone.
 - **Built for listening.** Skip back and forward 10 seconds, remember where you stopped, keep playing with the screen off.
 - **Tidy.** Tracks, albums, playlists and favourites, with fast search.
 - **Yours to edit.** Rename tracks, trim them, or pull the audio out of a video.
+
+## Everything it can do
+
+**Getting audio in**
+
+- **Import audio files** from your phone: MP3, M4A, AAC, WAV, FLAC and AIFF.
+- **Turn a video into audio.** Pick a video, name the track, and keep just the sound as an MP3.
+- **Download from links.** Paste a direct link to an audio or video file and Listeny saves it as an MP3. You can run up to three downloads at once, cancel any of them, and see a history of what you downloaded.
+- **Sync what's already on your phone.** Optional, and it never copies or deletes your files.
+- **Skip duplicates.** Adding the same file twice won't clutter your library.
+- **Files you can find.** Downloads, video conversions and trimmed tracks are saved in `Music/Listeny`, so they show up in your file manager (Android 11 and newer).
+
+**Listening**
+
+- Keeps playing with the screen off, in the background, or with the phone locked.
+- **Controls everywhere:** notification shade, lock screen, and Bluetooth or headset buttons.
+- Seek bar, 10-second back and forward, shuffle and repeat.
+- **Queue:** play now, play next, add to queue, drag to reorder, clear what's left.
+- Remembers your queue and position when you reopen the app. It never starts playing by itself.
+- Optional setting to keep playing after you close the app.
+
+**Organising**
+
+- Tabs for Tracks, Albums, Recently Played and Favourites, plus a Recently Added row.
+- Album and artist pages.
+- **Playlists:** create, rename, reorder, and a cover made from the tracks inside.
+- Favourites, play counts, and fast search across tracks, albums, artists and playlists.
+- Long-press to select several tracks, then add them to a playlist or delete them together.
+- Rename tracks and albums. Deleting asks whether to remove from the library only or delete the file too.
+
+**Editing**
+
+- **Trim:** drag the waveform handles or type exact start and end times, preview from any point, add a 1, 2 or 3 second fade, then save as a new track or replace the original.
+- A trimmed copy keeps the original's name with a number, like "Lesson (2)", and the same cover.
+
+**Look and feel**
+
+- Light, dark, or follow the phone.
+- 10 languages, including proper right-to-left layouts.
+
+**Privacy**
+
+- No ads, no account, no analytics, no cloud. Everything stays on the phone.
 
 ## Download and install
 
