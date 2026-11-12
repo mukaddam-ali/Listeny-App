@@ -94,7 +94,7 @@ Because the app isn't on the Play Store, Google Play Protect may show a warning 
 SHA-256 of the APK, if you'd like to check your download:
 
 ```
-a6adb38db13b63f971356f383f8909a5ef8ee7ab49a5bb77d76ef53bc7f31885
+9ad9a1ce3f244093c7ed3e475ed740c85953214aedc463ced1aae045024993cd
 ```
 
 **iPhone**
