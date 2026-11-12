@@ -6,6 +6,7 @@ import '../../app/theme/nocturne_colors.dart';
 import '../../core/models/track.dart';
 import '../../core/utilities/format.dart';
 import '../../l10n/generated/app_localizations.dart';
+import '../../shared/song_context_menu.dart';
 import '../../library/library_repository.dart';
 import '../../playback/playback_service.dart';
 import '../../playback/playback_state.dart';
@@ -141,7 +142,11 @@ class _NowPlayingScreenState extends State<NowPlayingScreen> {
                                       ),
                                       tooltip:
                                           l10n.nowPlayingMoreOptionsTooltip,
-                                      onPressed: () {},
+                                      onPressed: () => showSongContextMenu(
+                                        context,
+                                        track: track,
+                                        playContext: [track],
+                                      ),
                                     ),
                                   ],
                                 );
