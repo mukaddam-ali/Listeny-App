@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="design_doc_mode" content="canvas">
+<link rel="stylesheet" href="_ds/nocturne-d146c083-67ea-4de0-8e97-ce2b6a08c81a/styles.css">
+<script src="_ds/nocturne-d146c083-67ea-4de0-8e97-ce2b6a08c81a/_ds_bundle.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/fill/style.css">
+<style>
+body{margin:0;background:#0d0e16}
+i[class^="ph"]{line-height:1}
+</style>
+</helmet>
+
+<section style="padding:44px 48px 40px;font-family:var(--font-body)">
+<div style="display:flex;align-items:baseline;gap:12px;margin:0 0 8px">
+<a href="#t1" style="font:600 10px ui-monospace,Menlo,monospace;padding:3px 7px;background:var(--color-accent-900);color:var(--color-accent-300);border-radius:4px;text-decoration:none">1</a>
+<span style="font:500 15px/1.2 var(--font-heading);color:var(--color-text)">Nocturne — local music player, all states</span>
+</div>
+<p style="max-width:760px;margin:0 0 28px;font-size:13px;line-height:1.6;color:color-mix(in srgb,var(--color-text) 55%,transparent)">
+Dark-only, 393×852. Identity: every screen takes a low tint from the current artwork's hue — a bloom behind the Now Playing artwork, a wash across the album header, a breath of it in the mini-player — so the app's color changes with what you're listening to while the chrome stays Nocturne-neutral. Artwork is abstract CSS, standing in for real embedded cover art. Library content is fictional.
+</p>
+
+<div style="display:flex;flex-wrap:wrap;gap:34px;align-items:flex-start">
+
+<!-- ============ 1a EMPTY LIBRARY ============ -->
+<div id="1a" style="display:flex;flex-direction:column;gap:9px;scroll-margin-top:16px">
+<div style="display:flex;align-items:baseline;gap:8px;font:400 11px/1.3 var(--font-body);color:color-mix(in srgb,var(--color-text) 55%,transparent)"><a href="#1a" style="font:600 10.5px ui-monospace,Menlo,monospace;padding:3px 7px;background:var(--color-neutral-900);color:var(--color-neutral-300);border-radius:5px;text-decoration:none">1a</a>Empty library</div>
+<div style="width:393px;height:852px;border-radius:42px;overflow:hidden;position:relative;background:var(--color-bg);color:var(--color-text);box-shadow:var(--shadow-md)">
+  <div style="height:54px;display:flex;align-items:flex-end;justify-content:space-between;padding:0 30px 8px;font-size:15px;font-weight:600;letter-spacing:-0.01em"><span>9:41</span><span style="display:flex;align-items:center;gap:6px;font-size:14px"><i class="ph-fill ph-cell-signal-high"></i><i class="ph-fill ph-wifi-high"></i><i class="ph-fill ph-battery-full"></i></span></div>
+  <div style="padding:8px 20px 0"><h1 style="font-size:34px;letter-spacing:-0.03em;margin:0">Library</h1></div>
+  <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0;padding:0 44px;text-align:center">
+    <div style="width:104px;height:104px;border-radius:26px;display:grid;place-items:center;background:linear-gradient(180deg,var(--color-neutral-900),rgba(41,43,49,0));box-shadow:inset 0 0 0 1px var(--color-neutral-800);margin-bottom:26px"><i class="ph ph-vinyl-record" style="font-size:46px;color:var(--color-neutral-600)"></i></div>
+    <div style="font:500 22px/1.2 var(--font-heading);letter-spacing:-0.02em">No music yet</div>
+    <p style="margin:10px 0 0;font-size:14px;line-height:1.5;color:color-mix(in srgb,var(--color-text) 52%,transparent)">Import music from the Files app to start building your library.</p>
+    <div style="height:32px"></div>
+    <div style="display:flex;align-items:center;justify-content:center;gap:8px;height:50px;padding:0 26px;border-radius:14px;border:1px solid var(--color-accent);color:var(--color-accent-300);font:500 16px var(--font-heading)"><i class="ph ph-tray-arrow-down" style="font-size:19px"></i>Import Music</div>
+    <p style="margin:20px 0 0;display:flex;align-items:center;gap:6px;font-size:12.5px;color:color-mix(in srgb,var(--color-text) 42%,transparent)"><i class="ph ph-lock-simple" style="font-size:14px"></i>Your music stays on your device.</p>
+  </div>
+  <div style="position:absolute;left:0;right:0;bottom:0;height:83px;padding-top:10px;display:grid;grid-template-columns:repeat(4,1fr);background:rgba(22,24,38,.84);backdrop-filter:blur(24px);border-top:1px solid var(--color-divider)">
+    <div style="display:flex;flex-direction:column;align-items:center;gap:4px;font-size:10px;color:var(--color-accent-300)"><i class="ph-fill ph-vinyl-record" style="font-size:23px"></i>Library</div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:4px;font-size:10px;color:var(--color-neutral-600)"><i class="ph ph-list-dashes" style="font-size:23px"></i>Playlists</div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:4px;font-size:10px;color:var(--color-neutral-600)"><i class="ph ph-magnifying-glass" style="font-size:23px"></i>Search</div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:4px;font-size:10px;color:var(--color-neutral-600)"><i class="ph ph-gear-six" style="font-size:23px"></i>Settings</div>
+    <div style="position:absolute;left:50%;transform:translateX(-50%);bottom:8px;width:134px;height:5px;border-radius:3px;background:var(--color-neutral-700)"></div>
+  </div>
+</div>
+</div>
+
+<!-- ============ 1b IMPORTING ============ -->
+<div id="1b" style="display:flex;flex-direction:column;gap:9px;scroll-margin-top:16px">
+<div style="display:flex;align-items:baseline;gap:8px;font:400 11px/1.3 var(--font-body);color:color-mix(in srgb,var(--color-text) 55%,transparent)"><a href="#1b" style="font:600 10.5px ui-monospace,Menlo,monospace;padding:3px 7px;background:var(--color-neutral-900);color:var(--color-neutral-300);border-radius:5px;text-decoration:none">1b</a>Importing — progress sheet</div>
+<div style="width:393px;height:852px;border-radius:42px;overflow:hidden;position:relative;background:var(--color-bg);color:var(--color-text);box-shadow:var(--shadow-md)">
+  <div style="position:absolute;inset:0;opacity:.5;filter:blur(2px)">
+    <div style="height:54px"></div>
+    <div style="padding:8px 20px 0"><h1 style="font-size:34px;letter-spacing:-0.03em;margin:0;color:var(--color-neutral-600)">Library</h1></div>
+  </div>
+  <div style="position:absolute;inset:0;background:rgba(9,10,16,.55)"></div>
+  <div style="position:absolute;left:0;right:0;bottom:0;border-radius:26px 26px 0 0;background:var(--color-surface);box-shadow:0 -1px 0 var(--color-neutral-800),0 -24px 60px rgba(0,0,0,.6);padding:10px 22px 40px">
+    <div style="width:38px;height:5px;border-radius:3px;background:var(--color-neutral-700);margin:0 auto 22px"></div>
+    <div style="display:flex;align-items:baseline;justify-content:space-between">
+      <div style="font:500 20px var(--font-heading);letter-spacing:-0.02em">Importing music</div>
+      <div style="font-size:13px;color:var(--color-accent-300)">Cancel</div>
+    </div>
+    <p style="margin:6px 0 20px;font-size:13px;color:color-mix(in srgb,var(--color-text) 52%,transparent)">14 of 22 files · reading metadata</p>
+    <div style="height:4px;border-radius:2px;background:var(--color-neutral-900);overflow:hidden;margin-bottom:22px"><div style="width:64%;height:100%;border-radius:2px;background:var(--color-accent)"></div></div>
+    <div style="display:flex;flex-direction:column;gap:14px">
+      <div style="display:flex;align-items:center;gap:13px">
+        <div style="width:44px;height:44px;border-radius:8px;background:radial-gradient(130% 100% at 18% 8%,#7a6ade 0%,rgba(122,106,222,0) 58%),linear-gradient(160deg,#232544,#141525)"></div>
+        <div style="flex:1;min-width:0"><div style="font-size:15px;font-weight:500;letter-spacing:-0.01em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Everything Blue Recedes</div><div style="font-size:12.5px;color:color-mix(in srgb,var(--color-text) 50%,transparent)">Aster Vale · FLAC · 41.2 MB</div></div>
+        <i class="ph ph-circle-notch" style="font-size:18px;color:var(--color-accent-300)"></i>
+      </div>
+      <div style="display:flex;align-items:center;gap:13px;opacity:.62">
+        <div style="width:44px;height:44px;border-radius:8px;background:radial-gradient(130% 100% at 18% 8%,#7a6ade 0%,rgba(122,106,222,0) 58%),linear-gradient(160deg,#232544,#141525)"></div>
+        <div style="flex:1;min-width:0"><div style="font-size:15px;font-weight:500;letter-spacing:-0.01em">Nightjar</div><div style="font-size:12.5px;color:color-mix(in srgb,var(--color-text) 50%,transparent)">Aster Vale · FLAC · 33.8 MB</div></div>
+        <i class="ph-fill ph-check-circle" style="font-size:18px;color:var(--color-accent-400)"></i>
+      </div>
+      <div style="display:flex;align-items:center;gap:13px;opacity:.62">
+        <div style="width:44px;height:44px;border-radius:8px;display:grid;place-items:center;background:var(--color-neutral-900)"><i class="ph ph-music-note-simple" style="font-size:18px;color:var(--color-neutral-600)"></i></div>
+        <div style="flex:1;min-width:0"><div style="font-size:15px;font-weight:500;letter-spacing:-0.01em">track_07.wav</div><div style="font-size:12.5px;color:color-mix(in srgb,var(--color-text) 50%,transparent)">No metadata · WAV · 52.1 MB</div></div>
+        <i class="ph-fill ph-check-circle" style="font-size:18px;color:var(--color-accent-400)"></i>
+      </div>
+    </div>
+    <div style="margin-top:24px;padding-top:16px;border-top:1px solid var(--color-divider);display:flex;align-items:center;gap:7px;font-size:12px;color:color-mix(in srgb,var(--color-text) 42%,transparent)"><i class="ph ph-lock-simple" style="font-size:13px"></i>Copied into the app — originals untouched.</div>
+    <div style="position:absolute;left:50%;transform:translateX(-50%);bottom:8px;width:134px;height:5px;border-radius:3px;background:var(--color-neutral-700)"></div>
+  </div>
+</div>
+</div>
+
+<!-- ============ 1c IMPORT COMPLETE ============ -->
+<div id="1c" style="display:flex;flex-direction:column;gap:9px;scroll-margin-top:16px">
+<div style="display:flex;align-items:baseline;gap:8px;font:400 11px/1.3 var(--font-body);color:color-mix(in srgb,var(--color-text) 55%,transparent)"><a href="#1c" style="font:600 10.5px ui-monospace,Menlo,monospace;padding:3px 7px;background:var(--color-neutral-900);color:var(--color-neutral-300);border-radius:5px;text-decoration:none">1c</a>Import complete — with skips</div>
+<div style="width:393px;height:852px;border-radius:42px;overflow:hidden;position:relative;background:var(--color-bg);color:var(--color-text);box-shadow:var(--shadow-md)">
+  <div style="position:absolute;inset:0;background:rgba(9,10,16,.55)"></div>
+  <div style="position:absolute;left:0;right:0;bottom:0;border-radius:26px 26px 0 0;background:var(--color-surface);box-shadow:0 -1px 0 var(--color-neutral-800),0 -24px 60px rgba(0,0,0,.6);padding:10px 22px 40px">
+    <div style="width:38px;height:5px;border-radius:3px;background:var(--color-neutral-700);margin:0 auto 26px"></div>
+    <div style="display:flex;flex-direction:column;align-items:center;text-align:center;padding-bottom:8px">
+      <div style="width:56px;height:56px;border-radius:28px;display:grid;place-items:center;box-shadow:inset 0 0 0 1px var(--color-accent-700);background:var(--color-accent-900)"><i class="ph ph-check" style="font-size:26px;color:var(--color-accent-300)"></i></div>
+      <div style="margin-top:16px;font:500 21px var(--font-heading);letter-spacing:-0.02em">19 songs added</div>
+      <p style="margin:6px 0 0;font-size:13.5px;color:color-mix(in srgb,var(--color-text) 52%,transparent)">3 albums · 4 artists · 1.2 GB</p>
+    </div>
+    <div style="margin-top:24px;display:flex;flex-direction:column;gap:1px;border-radius:12px;overflow:hidden;background:var(--color-neutral-900)">
+      <div style="display:flex;align-items:center;gap:12px;padding:13px 14px;background:var(--color-bg)">
+        <i class="ph ph-copy" style="font-size:19px;color:var(--color-neutral-400)"></i>
+        <div style="flex:1"><div style="font-size:14.5px;font-weight:500">2 duplicates skipped</div><div style="font-size:12px;color:color-mix(in srgb,var(--color-text) 48%,transparent)">Already in your library</div></div>
+        <i class="ph ph-caret-right" style="font-size:15px;color:var(--color-neutral-600)"></i>
+      </div>
+      <div style="display:flex;align-items:center;gap:12px;padding:13px 14px;background:var(--color-bg)">
+        <i class="ph ph-file-x" style="font-size:19px;color:var(--color-neutral-400)"></i>
+        <div style="flex:1"><div style="font-size:14.5px;font-weight:500">1 file not supported</div><div style="font-size:12px;color:color-mix(in srgb,var(--color-text) 48%,transparent)">interview.ogg</div></div>
+        <i class="ph ph-caret-right" style="font-size:15px;color:var(--color-neutral-600)"></i>
+      </div>
+    </div>
+    <div style="margin-top:22px;display:flex;flex-direction:column;gap:10px">
+      <div style="display:flex;align-items:center;justify-content:center;gap:8px;height:50px;border-radius:14px;border:1px solid var(--color-accent);color:var(--color-accent-300);font:500 16px var(--font-heading)"><i class="ph-fill ph-play" style="font-size:16px"></i>Play what's new</div>
+      <div style="display:flex;align-items:center;justify-content:center;height:50px;border-radius:14px;color:color-mix(in srgb,var(--color-text) 60%,transparent);font:500 16px var(--font-heading)">Done</div>
+    </div>
+    <div style="position:absolute;left:50%;transform:translateX(-50%);bottom:8px;width:134px;height:5px;border-radius:3px;background:var(--color-neutral-700)"></div>
+  </div>
+</div>
+</div>
+
+<!-- ============ 1d ERRORS ============ -->
+<div id="1d" style="display:flex;flex-direction:column;gap:9px;scroll-margin-top:16px">
+<div style="display:flex;align-items:baseline;gap:8px;font:400 11px/1.3 var(--font-body);color:color-mix(in srgb,var(--color-text) 55%,transparent)"><a href="#1d" style="font:600 10.5px ui-monospace,Menlo,monospace;padding:3px 7px;background:var(--color-neutral-900);color:var(--color-neutral-300);border-radius:5px;text-decoration:none">1d</a>Error states — unsupported, duplicate, corrupt</div>
+<div style="width:393px;height:852px;border-radius:42px;overflow:hidden;position:relative;background:var(--color-bg);color:var(--color-text);box-shadow:var(--shadow-md)">
+  <div style="height:54px;display:flex;align-items:flex-end;justify-content:space-between;padding:0 30px 8px;font-size:15px;font-weight:600"><span>9:41</span><span style="display:flex;align-items:center;gap:6px;font-size:14px"><i class="ph-fill ph-cell-signal-high"></i><i class="ph-fill ph-wifi-high"></i><i class="ph-fill ph-battery-full"></i></span></div>
+  <div style="display:flex;align-items:center;gap:6px;padding:2px 20px 0;font-size:16px;color:var(--color-accent-300)"><i class="ph ph-caret-left" style="font-size:19px"></i>Import</div>
+  <div style="padding:14px 20px 0"><h1 style="font-size:30px;letter-spacing:-0.03em;margin:0">Skipped files</h1><p style="margin:6px 0 0;font-size:13.5px;color:color-mix(in srgb,var(--color-text) 52%,transparent)">3 of 22 files were not added.</p></div>
+  <div style="padding:24px 20px 0;display:flex;flex-direction:column;gap:14px">
+    <div style="border-radius:14px;padding:15px 16px;background:var(--color-surface);box-shadow:var(--shadow-sm)">
+      <div style="display:flex;align-items:center;gap:9px;margin-bottom:8px"><i class="ph-fill ph-warning-circle" style="font-size:17px;color:var(--color-accent-400)"></i><div style="font:500 15px var(--font-heading)">Format not supported</div></div>
+      <div style="font-size:13.5px;line-height:1.5;color:color-mix(in srgb,var(--color-text) 60%,transparent)">interview.ogg — iOS cannot decode Ogg Vorbis. Supported: MP3, M4A, AAC, WAV, FLAC, AIFF.</div>
+      <div style="margin-top:12px;display:flex;gap:8px"><div style="height:34px;padding:0 14px;display:grid;place-items:center;border-radius:9px;border:1px solid var(--color-accent);color:var(--color-accent-300);font-size:13.5px;font-weight:500">Convert guide</div><div style="height:34px;padding:0 14px;display:grid;place-items:center;border-radius:9px;color:color-mix(in srgb,var(--color-text) 55%,transparent);font-size:13.5px">Dismiss</div></div>
+    </div>
+    <div style="border-radius:14px;padding:15px 16px;background:var(--color-surface);box-shadow:var(--shadow-sm)">
+      <div style="display:flex;align-items:center;gap:9px;margin-bottom:8px"><i class="ph ph-copy" style="font-size:17px;color:var(--color-neutral-400)"></i><div style="font:500 15px var(--font-heading)">Already in your library</div></div>
+      <div style="font-size:13.5px;line-height:1.5;color:color-mix(in srgb,var(--color-text) 60%,transparent)">Half Light · Aster Vale, and 1 more. Matched on title, artist and duration.</div>
+      <div style="margin-top:12px;display:flex;gap:8px"><div style="height:34px;padding:0 14px;display:grid;place-items:center;border-radius:9px;border:1px solid var(--color-neutral-700);color:color-mix(in srgb,var(--color-text) 75%,transparent);font-size:13.5px;font-weight:500">Import anyway</div><div style="height:34px;padding:0 14px;display:grid;place-items:center;border-radius:9px;color:color-mix(in srgb,var(--color-text) 55%,transparent);font-size:13.5px">Keep skipped</div></div>
+    </div>
+  </div>
+  <div style="position:absolute;inset:0;background:rgba(9,10,16,.6);backdrop-filter:blur(2px);display:grid;place-items:center;padding:0 44px">
+    <div style="width:100%;border-radius:16px;background:var(--color-neutral-900);box-shadow:var(--shadow-lg);overflow:hidden;text-align:center">
+      <div style="padding:22px 20px 18px">
+        <div style="font:500 17px var(--font-heading);margin-bottom:6px">Can't read this file</div>
+        <div style="font-size:13px;line-height:1.5;color:color-mix(in srgb,var(--color-text) 62%,transparent)">“Cold Chorus 04.m4a” appears to be damaged. It was not added to your library.</div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--color-neutral-800)">
+        <div style="padding:13px 0;font-size:16px;color:color-mix(in srgb,var(--color-text) 70%,transparent);border-right:1px solid var(--color-neutral-800)">Report</div>
+        <div style="padding:13px 0;font-size:16px;font-weight:500;color:var(--color-accent-300)">OK</div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ============ 1e LIBRARY POPULATED ============ -->
+<div id="1e" style="display:flex;flex-direction:column;gap:9px;scroll-margin-top:16px">
+<div style="display:flex;align-items:baseline;gap:8px;font:400 11px/1.3 var(--font-body);color:color-mix(in srgb,var(--color-text) 55%,transparent)"><a href="#1e" style="font:600 10.5px ui-monospace,Menlo,monospace;padding:3px 7px;background:var(--color-neutral-900);color:var(--color-neutral-300);border-radius:5px;text-decoration:none">1e</a>Library — populated, with mini-player</div>
+<div style="width:393px;height:852px;border-radius:42px;overflow:hidden;position:relative;background:var(--color-bg);color:var(--color-text);box-shadow:var(--shadow-md)">
+  <div style="position:absolute;top:0;left:0;right:0;height:280px;background:radial-gradient(120% 100% at 78% 0%,rgba(122,106,222,.28) 0%,rgba(122,106,222,0) 68%)"></div>
+  <div style="position:relative;height:100%;overflow:hidden">
+    <div style="height:54px;display:flex;align-items:flex-end;justify-content:space-between;padding:0 30px 8px;font-size:15px;font-weight:600"><span>9:41</span><span style="display:flex;align-items:center;gap:6px;font-size:14px"><i class="ph-fill ph-cell-signal-high"></i><i class="ph-fill ph-wifi-high"></i><i class="ph-fill ph-battery-full"></i></span></div>
+    <div style="padding:6px 20px 0;display:flex;align-items:flex-end;justify-content:space-between">
+      <h1 style="font-size:34px;letter-spacing:-0.03em;margin:0">Library</h1>
+      <div style="display:flex;align-items:center;gap:16px;padding-bottom:6px;color:var(--color-accent-300)"><i class="ph ph-magnifying-glass" style="font-size:21px"></i><i class="ph ph-tray-arrow-down" style="font-size:21px"></i></div>
+    </div>
+    <div style="padding:22px 0 0 20px">
+      <div style="font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:color-mix(in srgb,var(--color-text) 45%,transparent);margin-bottom:12px">Recently added</div>
+      <div style="display:flex;gap:14px;overflow:hidden">
+        <div style="flex:none;width:134px"><div style="width:134px;height:134px;border-radius:12px;box-shadow:0 8px 22px rgba(0,0,0,.45);background:radial-gradient(130% 100% at 18% 8%,#7a6ade 0%,rgba(122,106,222,0) 58%),repeating-linear-gradient(118deg,rgba(233,233,237,.08) 0 1.5px,rgba(0,0,0,0) 1.5px 10px),linear-gradient(160deg,#232544,#141525)"></div><div style="margin-top:9px;font-size:13.5px;font-weight:500;letter-spacing:-0.01em">Longwave</div><div style="font-size:12.5px;color:color-mix(in srgb,var(--color-text) 50%,transparent)">Aster Vale</div></div>
+        <div style="flex:none;width:134px"><div style="width:134px;height:134px;border-radius:12px;box-shadow:0 8px 22px rgba(0,0,0,.45);background:radial-gradient(90% 80% at 74% 78%,#d3903a 0%,rgba(211,144,58,0) 60%),conic-gradient(from 210deg at 34% 26%,#2c2018,#181320 55%,#241a17)"></div><div style="margin-top:9px;font-size:13.5px;font-weight:500;letter-spacing:-0.01em">Salt Kilns</div><div style="font-size:12.5px;color:color-mix(in srgb,var(--color-text) 50%,transparent)">Márta Nowak</div></div>
+        <div style="flex:none;width:134px"><div style="width:134px;height:134px;border-radius:12px;box-shadow:0 8px 22px rgba(0,0,0,.45);background:radial-gradient(60% 55% at 50% 46%,#31a096 0%,rgba(49,160,150,0) 72%),repeating-radial-gradient(circle at 50% 46%,rgba(233,233,237,.07) 0 1px,rgba(0,0,0,0) 1px 12px),linear-gradient(180deg,#10201f,#0d1418)"></div><div style="margin-top:9px;font-size:13.5px;font-weight:500;letter-spacing:-0.01em">Pale Instrument</div><div style="font-size:12.5px;color:color-mix(in srgb,var(--color-text) 50%,transparent)">Odeon Field</div></div>
+      </div>
+    </div>
+    <div style="padding:26px 20px 0">
+      <div style="font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:color-mix(in srgb,var(--color-text) 45%,transparent);margin-bottom:10px">Recently played</div>
+      <div style="display:flex;flex-direction:column;gap:2px">
+        <div style="display:flex;align-items:center;gap:12px;padding:7px 0">
+          <div style="width:46px;height:46px;border-radius:8px;background:radial-gradient(100% 70% at 50% 100%,#2f7fa8 0%,rgba(47,127,168,0) 62%),repeating-linear-gradient(90deg,rgba(233,233,237,.06) 0 1px,rgba(0,0,0,0) 1px 7px),linear-gradient(180deg,#101a26,#0e1119)"></div>
+          <div style="flex:1;min-width:0"><div style="font-size:15.5px;font-weight:500;letter-spacing:-0.01em">Signal Hill</div><div style="font-size:12.5px;color:color-mix(in srgb,var(--color-text) 50%,transparent)">Hollow Signal · Cold Chorus</div></div>
+          <i class="ph ph-dots-three" style="font-size:19px;color:var(--color-neutral-600)"></i>
+        </div>
+        <div style="display:flex;align-items:center;gap:12px;padding:7px 0">
+          <div style="width:46px;height:46px;border-radius:8px;background:linear-gradient(115deg,#b3468f 0%,rgba(179,70,143,0) 52%),repeating-linear-gradient(0deg,rgba(0,0,0,.35) 0 6px,rgba(0,0,0,0) 6px 12px),linear-gradient(200deg,#33163a,#141020)"></div>
+          <div style="flex:1;min-width:0"><div style="font-size:15.5px;font-weight:500;letter-spacing:-0.01em">Nine Rooms</div><div style="font-size:12.5px;color:color-mix(in srgb,var(--color-text) 50%,transparent)">Byrd &amp; Sable · Nine Rooms</div></div>
+          <i class="ph ph-dots-three" style="font-size:19px;color:var(--color-neutral-600)"></i>
+        </div>
+        <div style="display:flex;align-items:center;gap:12px;padding:7px 0">
+          <div style="width:46px;height:46px;border-radius:8px;background:radial-gradient(80% 80% at 28% 72%,#b0512e 0%,rgba(176,81,46,0) 58%),conic-gradient(from 40deg at 70% 30%,#2a1712,#191320 50%,#221512)"></div>
+          <div style="flex:1;min-width:0"><div style="font-size:15.5px;font-weight:500;letter-spacing:-0.01em">Ferrous II</div><div style="font-size:12.5px;color:color-mix(in srgb,var(--color-text) 50%,transparent)">Juno Karr · Ferrous</div></div>
+          <i class="ph ph-dots-three" style="font-size:19px;color:var(--color-neutral-600)"></i>
+        </div>
+      </div>
+    </div>
+    <div style="padding:24px 20px 0">
+      <div style="display:flex;gap:8px;overflow:hidden">
+        <div style="flex:none;height:33px;padding:0 14px;display:grid;place-items:center;border-radius:9px;background:var(--color-accent-900);box-shadow:inset 0 0 0 1px var(--color-accent-700);color:var(--color-accent-200);font-size:13.5px;font-weight:500">Songs</div>
+        <div style="flex:none;height:33px;padding:0 14px;display:grid;place-items:center;border-radius:9px;background:var(--color-neutral-900);color:color-mix(in srgb,var(--color-text) 62%,transparent);font-size:13.5px">Albums</div>
+        <div style="flex:none;height:33px;padding:0 14px;display:grid;place-items:center;border-radius:9px;background:var(--color-neutral-900);color:color-mix(in srgb,var(--color-text) 62%,transparent);font-size:13.5px">Artists</div>
+        <div style="flex:none;height:33px;padding:0 14px;display:grid;place-items:center;border-radius:9px;background:var(--color-neutral-900);color:color-mix(in srgb,var(--color-text) 62%,transparent);font-size:13.5px">Favorites</div>
+      </div>
+      <div style="margin-top:14px;display:flex;flex-direction:column">
+        <div style="display:flex;align-items:center;gap:12px;padding:9px 0;border-bottom:1px solid var(--color-divider)"><div style="flex:1;min-width:0"><div style="font-size:15.5px;font-weight:500;letter-spacing:-0.01em">Cassette Sun</div><div style="font-size:12.5px;color:color-mix(in srgb,var(--color-text) 50%,transparent)">Aster Vale</div></div><div style="font-size:12.5px;color:color-mix(in srgb,var(--color-text) 40%,transparent)">4:02</div></div>
+        <div style="display:flex;align-items:center;gap:12px;padding:9px 0"><div style="flex:1;min-width:0"><div style="font-size:15.5px;font-weight:500;letter-spacing:-0.01em">Cold Chorus</div><div style="font-size:12.5px;color:color-mix(in srgb,var(--color-text) 50%,transparent)">Hollow Signal</div></div><div style="font-size:12.5px;color:color-mix(in srgb,var(--color-text) 40%,transparent)">5:11</div></div>
+      </div>
+    </div>
+  </div>
+  <div style="position:absolute;left:0;right:0;bottom:83px;height:64px;background:linear-gradient(180deg,rgba(122,106,222,.14),rgba(122,106,222,.06)),rgba(30,32,48,.9);backdrop-filter:blur(24px);border-top:1px solid var(--color-divider)">
+    <div style="height:2px;background:var(--color-neutral-900)"><div style="width:32%;height:100%;background:var(--color-accent-400)"></div></div>
+    <div style="display:flex;align-items:center;gap:12px;padding:0 16px;height:62px">
+      <div style="width:42px;height:42px;border-radius:7px;background:radial-gradient(130% 100% at 18% 8%,#7a6ade 0%,rgba(122,106,222,0) 58%),linear-gradient(160deg,#232544,#141525)"></div>
+      <div style="flex:1;min-width:0"><div style="font-size:14.5px;font-weight:500;letter-spacing:-0.01em">Half Light</div><div style="font-size:12px;color:color-mix(in srgb,var(--color-text) 52%,transparent)">Aster Vale</div></div>
+      <i class="ph-fill ph-pause" style="font-size:22px"></i>
+      <i class="ph-fill ph-skip-forward" style="font-size:20px;color:color-mix(in srgb,var(--color-text) 70%,transparent)"></i>
+    </div>
+  </div>
+  <div style="position:absolute;left:0;right:0;bottom:0;height:83px;padding-top:10px;display:grid;grid-template-columns:repeat(4,1fr);background:rgba(22,24,38,.9);backdrop-filter:blur(24px);border-top:1px solid var(--color-divider)">
+    <div style="display:flex;flex-direction:column;align-items:center;gap:4px;font-size:10px;color:var(--color-accent-300)"><i class="ph-fill ph-vinyl-record" style="font-size:23px"></i>Library</div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:4px;font-size:10px;color:var(--color-neutral-600)"><i class="ph ph-list-dashes" style="font-size:23px"></i>Playlists</div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:4px;font-size:10px;color:var(--color-neutral-600)"><i class="ph ph-magnifying-glass" style="font-size:23px"></i>Search</div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:4px;font-size:10px;color:var(--color-neutral-600)"><i class="ph ph-gear-six" style="font-size:23px"></i>Settings</div>
+    <div style="position:absolute;left:50%;transform:translateX(-50%);bottom:8px;width:134px;height:5px;border-radius:3px;background:var(--color-neutral-700)"></div>
+  </div>
+</div>
+</div>
+
+<!-- ============ 1f ALBUM ============ -->
+<div id="1f" style="display:flex;flex-direction:column;gap:9px;scroll-margin-top:16px">
+<div style="display:flex;align-items:baseline;gap:8px;font:400 11px/1.3 var(--font-body);color:color-mix(in srgb,var(--color-text) 55%,transparent)"><a href="#1f" style="font:600 10.5px ui-monospace,Menlo,monospace;padding:3px 7px;background:var(--color-neutral-900);color:var(--color-neutral-300);border-radius:5px;text-decoration:none">1f</a>Album — artwork tint on header</div>
+<div style="width:393px;height:852px;border-radius:42px;overflow:hidden;position:relative;background:var(--color-bg);color:var(--color-text);box-shadow:var(--shadow-md)">
+  <div style="position:absolute;top:0;left:0;right:0;height:420px;background:linear-gradient(180deg,rgba(211,144,58,.30),rgba(211,144,58,.05) 62%,rgba(211,144,58,0))"></div>
+  <div style="position:relative">
+    <div style="height:54px;display:flex;align-items:flex-end;justify-content:space-between;padding:0 30px 8px;font-size:15px;font-weight:600"><span>9:41</span><span style="display:flex;align-items:center;gap:6px;font-size:14px"><i class="ph-fill ph-cell-signal-high"></i><i class="ph-fill ph-wifi-high"></i><i class="ph-fill ph-battery-full"></i></span></div>
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:2px 20px 0;color:var(--color-accent-300)"><div style="display:flex;align-items:center;gap:4px;font-size:16px"><i class="ph ph-caret-left" style="font-size:19px"></i>Library</div><i class="ph ph-dots-three-circle" style="font-size:22px"></i></div>
+    <div style="display:flex;flex-direction:column;align-items:center;padding:22px 24px 0;text-align:center">
+      <div style="width:216px;height:216px;border-radius:16px;box-shadow:0 20px 50px rgba(0,0,0,.55);background:radial-gradient(90% 80% at 74% 78%,#d3903a 0%,rgba(211,144,58,0) 60%),conic-gradient(from 210deg at 34% 26%,#2c2018,#181320 55%,#241a17)"></div>
+      <div style="margin-top:20px;font:500 25px/1.15 var(--font-heading);letter-spacing:-0.025em">Salt Kilns</div>
+      <div style="margin-top:4px;font-size:16px;color:var(--color-accent-300)">Márta Nowak</div>
+      <div style="margin-top:6px;font-size:12.5px;color:color-mix(in srgb,var(--color-text) 45%,transparent)">2024 · 8 songs · 34 min · FLAC</div>
+      <div style="margin-top:18px;display:flex;gap:10px;width:100%">
+        <div style="flex:1;height:46px;display:flex;align-items:center;justify-content:center;gap:7px;border-radius:12px;border:1px solid var(--color-accent);color:var(--color-accent-300);font:500 15.5px var(--font-heading)"><i class="ph-fill ph-play" style="font-size:15px"></i>Play</div>
+        <div style="flex:1;height:46px;display:flex;align-items:center;justify-content:center;gap:7px;border-radius:12px;border:1px solid var(--color-neutral-700);color:color-mix(in srgb,var(--color-text) 78%,transparent);font:500 15.5px var(--font-heading)"><i class="ph ph-shuffle" style="font-size:16px"></i>Shuffle</div>
+      </div>
+    </div>
+    <div style="padding:26px 20px 0;display:flex;flex-direction:column">
+      <div style="display:flex;align-items:center;gap:14px;padding:11px 0;border-bottom:1px solid var(--color-divider)"><div style="width:20px;font-size:13px;font-variant-numeric:tabular-nums;color:color-mix(in srgb,var(--color-text) 40%,transparent)">01</div><div style="flex:1;font-size:15.5px;font-weight:500;letter-spacing:-0.01em">Kiln Season</div><div style="font-size:13px;font-variant-numeric:tabular-nums;color:color-mix(in srgb,var(--color-text) 40%,transparent)">3:42</div><i class="ph ph-dots-three" style="font-size:18px;color:var(--color-neutral-600)"></i></div>
+      <div style="display:flex;align-items:center;gap:14px;padding:11px 0;border-bottom:1px solid var(--color-divider)"><div style="width:20px;font-size:13px;font-variant-numeric:tabular-nums;color:color-mix(in srgb,var(--color-text) 40%,transparent)">02</div><div style="flex:1;font-size:15.5px;font-weight:500;letter-spacing:-0.01em">Brackish</div><div style="font-size:13px;font-variant-numeric:tabular-nums;color:color-mix(in srgb,var(--color-text) 40%,transparent)">4:18</div><i class="ph ph-dots-three" style="font-size:18px;color:var(--color-neutral-600)"></i></div>
+      <div style="display:flex;align-items:center;gap:14px;padding:11px 0;border-bottom:1px solid var(--color-divider)"><div style="width:20px;display:grid;place-items:center"><i class="ph-fill ph-heart" style="font-size:13px;color:var(--color-accent-400)"></i></div><div style="flex:1;font-size:15.5px;font-weight:500;letter-spacing:-0.01em">Low Tide Furnace</div><div style="font-size:13px;font-variant-numeric:tabular-nums;color:color-mix(in srgb,var(--color-text) 40%,transparent)">2:57</div><i class="ph ph-dots-three" style="font-size:18px;color:var(--color-neutral-600)"></i></div>
+      <div style="display:flex;align-items:center;gap:14px;padding:11px 0;border-bottom:1px solid var(--color-divider)"><div style="width:20px;font-size:13px;font-variant-numeric:tabular-nums;color:color-mix(in srgb,var(--color-text) 40%,transparent)">04</div><div style="flex:1;font-size:15.5px;font-weight:500;letter-spacing:-0.01em">Saltwater Hymn</div><div style="font-size:13px;font-variant-numeric:tabular-nums;color:color-mix(in srgb,var(--color-text) 40%,transparent)">5:06</div><i class="ph ph-dots-three" style="font-size:18px;color:var(--color-neutral-600)"></i></div>
+      <div style="display:flex;align-items:center;gap:14px;padding:11px 0"><div style="width:20px;font-size:13px;font-variant-numeric:tabular-nums;color:color-mix(in srgb,var(--color-text) 40%,transparent)">05</div><div style="flex:1;font-size:15.5px;font-weight:500;letter-spacing:-0.01em">Márta's Reprise</div><div style="font-size:13px;font-variant-numeric:tabular-nums;color:color-mix(in srgb,var(--color-text) 40%,transparent)">1:48</div><i class="ph ph-dots-three" style="font-size:18px;color:var(--color-neutral-600)"></i></div>
+    </div>
+  </div>
+  <div style="position:absolute;left:0;right:0;bottom:0;height:83px;padding-top:10px;display:grid;grid-template-columns:repeat(4,1fr);background:rgba(22,24,38,.9);backdrop-filter:blur(24px);border-top:1px solid var(--color-divider)">
+    <div style="display:flex;flex-direction:column;align-items:center;gap:4px;font-size:10px;color:var(--color-accent-300)"><i class="ph-fill ph-vinyl-record" style="font-size:23px"></i>Library</div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:4px;font-size:10px;color:var(--color-neutral-600)"><i class="ph ph-list-dashes" style="font-size:23px"></i>Playlists</div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:4px;font-size:10px;color:var(--color-neutral-600)"><i class="ph ph-magnifying-glass" style="font-size:23px"></i>Search</div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:4px;font-size:10px;color:var(--color-neutral-600)"><i class="ph ph-gear-six" style="font-size:23px"></i>Settings</div>
+    <div style="position:absolute;left:50%;transform:translateX(-50%);bottom:8px;width:134px;height:5px;border-radius:3px;background:var(--color-neutral-700)"></div>
+  </div>
+</div>
+</div>
+
+<!-- ============ 1g ARTIST ============ -->
+<div id="1g" style="display:flex;flex-direction:column;gap:9px;scroll-margin-top:16px">
+<div style="display:flex;align-items:baseline;gap:8px;font:400 11px/1.3 var(--font-body);color:color-mix(in srgb,var(--color-text) 55%,transparent)"><a href="#1g" style="font:600 10.5px ui-monospace,Menlo,monospace;padding:3px 7px;background:var(--color-neutral-900);color:var(--color-neutral-300);border-radius:5px;text-decoration:none">1g</a>Artist — type-led, no fetched bio</div>
+<div style="width:393px;height:852px;border-radius:42px;overflow:hidden;position:relative;background:var(--color-bg);color:var(--color-text);box-shadow:var(--shadow-md)">
+  <div style="position:absolute;top:0;left:0;right:0;height:340px;background:radial-gradient(110% 90% at 12% 0%,rgba(122,106,222,.26),rgba(122,106,222,0) 70%)"></div>
+  <div style="position:relative">
+    <div style="height:54px;display:flex;align-items:flex-end;justify-content:space-between;padding:0 30px 8px;font-size:15px;font-weight:600"><span>9:41</span><span style="display:flex;align-items:center;gap:6px;font-size:14px"><i class="ph-fill ph-cell-signal-high"></i><i class="ph-fill ph-wifi-high"></i><i class="ph-fill ph-battery-full"></i></span></div>
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:2px 20px 0;color:var(--color-accent-300)"><div style="display:flex;align-items:center;gap:4px;font-size:16px"><i class="ph ph-caret-left" style="font-size:19px"></i>Library</div><i class="ph ph-dots-three-circle" style="font-size:22px"></i></div>
+    <div style="padding:40px 20px 0">
+      <div style="font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:color-mix(in srgb,var(--color-text) 45%,transparent)">Artist</div>
+      <h1 style="margin:8px 0 0;font-size:42px;line-height:1.02;letter-spacing:-0.035em">Aster<br>Vale</h1>
+      <div style="margin-top:14px;font-size:13px;color:color-mix(in srgb,var(--color-text) 48%,transparent)">2 albums · 17 songs · 1:12:40</div>
+      <div style="margin-top:20px;display:flex;gap:10px">
+        <div style="height:42px;padding:0 20px;display:flex;align-items:center;gap:7px;border-radius:11px;border:1px solid var(--color-accent);color:var(--color-accent-300);font:500 15px var(--font-heading)"><i class="ph-fill ph-play" style="font-size:14px"></i>Play</div>
+        <div style="height:42px;padding:0 20px;display:flex;align-items:center;gap:7px;border-radius:11px;border:1px solid var(--color-neutral-700);color:color-mix(in srgb,var(--color-text) 78%,transparent);font:500 15px var(--font-heading)"><i class="ph ph-shuffle" style="font-size:15px"></i>Shuffle</div>
+      </div>
+    </div>
+    <div style="padding:30px 20px 0">
+      <div style="font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:color-mix(in srgb,var(--color-text) 45%,transparent);margin-bottom:10px">Most played</div>
+      <div style="display:flex;flex-direction:column">
+        <div style="display:flex;align-items:center;gap:14px;padding:9px 0;border-bottom:1px solid var(--color-divider)"><div style="width:36px;height:36px;border-radius:7px;background:radial-gradient(130% 100% at 18% 8%,#7a6ade 0%,rgba(122,106,222,0) 58%),linear-gradient(160deg,#232544,#141525)"></div><div style="flex:1"><div style="font-size:15px;font-weight:500;letter-spacing:-0.01em">Half Light</div><div style="font-size:12px;color:color-mix(in srgb,var(--color-text) 48%,transparent)">42 plays</div></div><i class="ph ph-dots-three" style="font-size:18px;color:var(--color-neutral-600)"></i></div>
+        <div style="display:flex;align-items:center;gap:14px;padding:9px 0;border-bottom:1px solid var(--color-divider)"><div style="width:36px;height:36px;border-radius:7px;background:radial-gradient(130% 100% at 18% 8%,#7a6ade 0%,rgba(122,106,222,0) 58%),linear-gradient(160deg,#232544,#141525)"></div><div style="flex:1"><div style="font-size:15px;font-weight:500;letter-spacing:-0.01em">Sodium</div><div style="font-size:12px;color:color-mix(in srgb,var(--color-text) 48%,transparent)">31 plays</div></div><i class="ph ph-dots-three" style="font-size:18px;color:var(--color-neutral-600)"></i></div>
+        <div style="display:flex;align-items:center;gap:14px;padding:9px 0"><div style="width:36px;height:36px;border-radius:7px;background:radial-gradient(60% 55% at 50% 46%,#31a096 0%,rgba(49,160,150,0) 72%),linear-gradient(180deg,#10201f,#0d1418)"></div><div style="flex:1"><div style="font-size:15px;font-weight:500;letter-spacing:-0.01em">Cassette Sun</div><div style="font-size:12px;color:color-mix(in srgb,var(--color-text) 48%,transparent)">24 plays</div></div><i class="ph ph-dots-three" style="font-size:18px;color:var(--color-neutral-600)"></i></div>
+      </div>
+    </div>
+    <div style="padding:26px 0 0 20px">
+      <div style="font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:color-mix(in srgb,var(--color-text) 45%,transparent);margin-bottom:12px">Albums</div>
+      <div style="display:flex;gap:14px;overflow:hidden">
+        <div style="flex:none;width:126px"><div style="width:126px;height:126px;border-radius:11px;box-shadow:0 8px 22px rgba(0,0,0,.45);background:radial-gradient(130% 100% at 18% 8%,#7a6ade 0%,rgba(122,106,222,0) 58%),repeating-linear-gradient(118deg,rgba(233,233,237,.08) 0 1.5px,rgba(0,0,0,0) 1.5px 10px),linear-gradient(160deg,#232544,#141525)"></div><div style="margin-top:9px;font-size:13.5px;font-weight:500">Longwave</div><div style="font-size:12px;color:color-mix(in srgb,var(--color-text) 48%,transparent)">2025 · 9 songs</div></div>
+        <div style="flex:none;width:126px"><div style="width:126px;height:126px;border-radius:11px;box-shadow:0 8px 22px rgba(0,0,0,.45);background:radial-gradient(60% 55% at 50% 46%,#31a096 0%,rgba(49,160,150,0) 72%),repeating-radial-gradient(circle at 50% 46%,rgba(233,233,237,.07) 0 1px,rgba(0,0,0,0) 1px 12px),linear-gradient(180deg,#10201f,#0d1418)"></div><div style="margin-top:9px;font-size:13.5px;font-weight:500">Pale Instrument</div><div style="font-size:12px;color:color-mix(in srgb,var(--color-text) 48%,transparent)">2022 · 8 songs</div></div>
+      </div>
+    </div>
+  </div>
+  <div style="position:absolute;left:0;right:0;bottom:0;height:83px;padding-top:10px;display:grid;grid-template-columns:repeat(4,1fr);background:rgba(22,24,38,.9);backdrop-filter:blur(24px);border-top:1px solid var(--color-divider)">
+    <div style="display:flex;flex-direction:column;align-items:center;gap:4px;font-size:10px;color:var(--color-accent-300)"><i class="ph-fill ph-vinyl-record" style="font-size:23px"></i>Library</div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:4px;font-size:10px;color:var(--color-neutral-600)"><i class="ph ph-list-dashes" style="font-size:23px"></i>Playlists</div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:4px;font-size:10px;color:var(--color-neutral-600)"><i class="ph ph-magnifying-glass" style="font-size:23px"></i>Search</div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:4px;font-size:10px;color:var(--color-neutral-600)"><i class="ph ph-gear-six" style="font-size:23px"></i>Settings</div>
+    <div style="position:absolute;left:50%;transform:translateX(-50%);bottom:8px;width:134px;height:5px;border-radius:3px;background:var(--color-neutral-700)"></div>
+  </div>
+</div>
+</div>
+
+<!-- ============ 1h NOW PLAYING ============ -->
+<div id="1h" style="display:flex;flex-direction:column;gap:9px;scroll-margin-top:16px">
+<div style="display:flex;align-items:baseline;gap:8px;font:400 11px/1.3 var(--font-body);color:color-mix(in srgb,var(--color-text) 55%,transparent)"><a href="#1h" style="font:600 10.5px ui-monospace,Menlo,monospace;padding:3px 7px;background:var(--color-neutral-900);color:var(--color-neutral-300);border-radius:5px;text-decoration:none">1h</a>Now Playing — full artwork bloom</div>
+<div style="width:393px;height:852px;border-radius:42px;overflow:hidden;position:relative;background:#12131f;color:var(--color-text);box-shadow:var(--shadow-md)">
+  <div style="position:absolute;inset:0;background:radial-gradient(85% 55% at 50% 34%,rgba(122,106,222,.42) 0%,rgba(122,106,222,0) 72%),radial-gradient(70% 40% at 80% 88%,rgba(179,70,143,.16),rgba(179,70,143,0) 70%)"></div>
+  <div style="position:relative;height:100%;display:flex;flex-direction:column;padding:0 26px 34px">
+    <div style="height:54px;display:flex;align-items:flex-end;justify-content:space-between;padding:0 4px 8px;font-size:15px;font-weight:600"><span>9:41</span><span style="display:flex;align-items:center;gap:6px;font-size:14px"><i class="ph-fill ph-cell-signal-high"></i><i class="ph-fill ph-wifi-high"></i><i class="ph-fill ph-battery-full"></i></span></div>
+    <div style="display:flex;align-items:center;justify-content:center;padding:6px 0 0"><div style="width:38px;height:5px;border-radius:3px;background:rgba(233,233,237,.28)"></div></div>
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:14px 0 0;font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:color-mix(in srgb,var(--color-text) 48%,transparent)"><span>Playing from Longwave</span><i class="ph ph-dots-three-circle" style="font-size:20px"></i></div>
+    <div style="display:flex;justify-content:center;padding:34px 0 0">
+      <div style="width:100%;aspect-ratio:1;border-radius:20px;box-shadow:0 30px 70px rgba(0,0,0,.6),0 0 0 1px rgba(233,233,237,.06);background:radial-gradient(130% 100% at 18% 8%,#7a6ade 0%,rgba(122,106,222,0) 58%),repeating-linear-gradient(118deg,rgba(233,233,237,.08) 0 1.5px,rgba(0,0,0,0) 1.5px 10px),linear-gradient(160deg,#232544,#141525)"></div>
+    </div>
+    <div style="padding:34px 0 0;display:flex;align-items:flex-start;justify-content:space-between;gap:14px">
+      <div style="min-width:0">
+        <div style="font:500 26px/1.15 var(--font-heading);letter-spacing:-0.03em">Half Light</div>
+        <div style="margin-top:6px;font-size:16px;color:color-mix(in srgb,var(--color-text) 72%,transparent)">Aster Vale</div>
+        <div style="margin-top:2px;font-size:13px;color:color-mix(in srgb,var(--color-text) 42%,transparent)">Longwave · 2025 · FLAC 24/48</div>
+      </div>
+      <i class="ph-fill ph-heart" style="font-size:25px;color:var(--color-accent-400);padding-top:4px"></i>
+    </div>
+    <div style="padding:26px 0 0">
+      <div style="height:4px;border-radius:2px;background:rgba(233,233,237,.14);position:relative"><div style="width:32%;height:100%;border-radius:2px;background:var(--color-accent-200)"></div><div style="position:absolute;left:32%;top:50%;transform:translate(-50%,-50%);width:11px;height:11px;border-radius:6px;background:var(--color-accent-100)"></div></div>
+      <div style="display:flex;justify-content:space-between;margin-top:9px;font-size:11.5px;font-variant-numeric:tabular-nums;color:color-mix(in srgb,var(--color-text) 45%,transparent)"><span>1:12</span><span>−2:30</span></div>
+    </div>
+    <div style="padding:22px 0 0;display:flex;align-items:center;justify-content:space-between">
+      <i class="ph-fill ph-skip-back" style="font-size:34px"></i>
+      <div style="width:82px;height:82px;border-radius:41px;display:grid;place-items:center;background:rgba(233,233,237,.10);box-shadow:inset 0 0 0 1px rgba(233,233,237,.14)"><i class="ph-fill ph-pause" style="font-size:34px"></i></div>
+      <i class="ph-fill ph-skip-forward" style="font-size:34px"></i>
+    </div>
+    <div style="margin-top:auto;padding-top:26px;display:flex;align-items:center;justify-content:space-between;color:color-mix(in srgb,var(--color-text) 60%,transparent)">
+      <i class="ph ph-shuffle" style="font-size:21px"></i>
+      <div style="display:flex;align-items:center;gap:9px;font-size:12px;color:var(--color-accent-300)"><i class="ph ph-repeat" style="font-size:21px"></i>Album</div>
+      <i class="ph ph-speaker-high" style="font-size:21px"></i>
+      <div style="display:flex;align-items:center;gap:6px;font-size:12px"><i class="ph ph-queue" style="font-size:21px"></i>Queue</div>
+    </div>
+    <div style="position:absolute;left:50%;transform:translateX(-50%);bottom:8px;width:134px;height:5px;border-radius:3px;background:rgba(233,233,237,.34)"></div>
+  </div>
+</div>
+</div>
+
+<!-- ============ 1i QUEUE ============ -->
+<div id="1i" style="display:flex;flex-direction:column;gap:9px;scroll-margin-top:16px">
+<div style="display:flex;align-items:baseline;gap:8px;font:400 11px/1.3 var(--font-body);color:color-mix(in srgb,var(--color-text) 55%,transparent)"><a href="#1i" style="font:600 10.5px ui-monospace,Menlo,monospace;padding:3px 7px;background:var(--color-neutral-900);color:var(--color-neutral-300);border-radius:5px;text-decoration:none">1i</a>Queue — mid drag-to-reorder</div>
+<div style="width:393px;height:852px;border-radius:42px;overflow:hidden;position:relative;background:#12131f;color:var(--color-text);box-shadow:var(--shadow-md)">
+  <div style="position:absolute;inset:0;background:radial-gradient(85% 45% at 50% 0%,rgba(122,106,222,.30) 0%,rgba(122,106,222,0) 70%)"></div>
+  <div style="position:relative;padding:0 22px">
+    <div style="height:54px;display:flex;align-items:flex-end;justify-content:space-between;padding:0 8px 8px;font-size:15px;font-weight:600"><span>9:41</span><span style="display:flex;align-items:center;gap:6px;font-size:14px"><i class="ph-fill ph-cell-signal-high"></i><i class="ph-fill ph-wifi-high"></i><i class="ph-fill ph-battery-full"></i></span></div>
+    <div style="display:flex;align-items:center;justify-content:center;padding:6px 0 22px"><div style="width:38px;height:5px;border-radius:3px;background:rgba(233,233,237,.28)"></div></div>
+    <div style="display:flex;align-items:center;gap:13px;padding:0 0 20px;border-bottom:1px solid var(--color-divider)">
+      <div style="width:52px;height:52px;border-radius:9px;background:radial-gradient(130% 100% at 18% 8%,#7a6ade 0%,rgba(122,106,222,0) 58%),linear-gradient(160deg,#232544,#141525)"></div>
+      <div style="flex:1;min-width:0"><div style="font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:var(--color-accent-300)">Now playing</div><div style="margin-top:3px;font-size:16px;font-weight:500;letter-spacing:-0.015em">Half Light</div><div style="font-size:12.5px;color:color-mix(in srgb,var(--color-text) 50%,transparent)">Aster Vale</div></div>
+      <div style="display:flex;align-items:flex-end;gap:2px;height:16px"><div style="width:2px;height:60%;background:var(--color-accent-300)"></div><div style="width:2px;height:100%;background:var(--color-accent-300)"></div><div style="width:2px;height:40%;background:var(--color-accent-300)"></div><div style="width:2px;height:80%;background:var(--color-accent-300)"></div></div>
+    </div>
+    <div style="display:flex;align-items:baseline;justify-content:space-between;padding:20px 0 12px">
+      <div style="font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:color-mix(in srgb,var(--color-text) 45%,transparent)">Playing next</div>
+      <div style="font-size:13px;color:var(--color-accent-300)">Clear</div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:2px">
+      <div style="display:flex;align-items:center;gap:13px;padding:10px 12px;border-radius:12px;background:var(--color-surface);box-shadow:0 14px 30px rgba(0,0,0,.5),0 0 0 1px rgba(233,233,237,.08);transform:translateY(-2px) scale(1.015)">
+        <div style="width:42px;height:42px;border-radius:7px;background:radial-gradient(130% 100% at 18% 8%,#7a6ade 0%,rgba(122,106,222,0) 58%),linear-gradient(160deg,#232544,#141525)"></div>
+        <div style="flex:1;min-width:0"><div style="font-size:15px;font-weight:500;letter-spacing:-0.01em">Sodium</div><div style="font-size:12.5px;color:color-mix(in srgb,var(--color-text) 50%,transparent)">Aster Vale</div></div>
+        <i class="ph ph-list" style="font-size:19px;color:var(--color-neutral-400)"></i>
+      </div>
+      <div style="height:2px;margin:4px 12px;border-radius:1px;background:var(--color-accent-700)"></div>
+      <div style="display:flex;align-items:center;gap:13px;padding:8px 12px">
+        <div style="width:42px;height:42px;border-radius:7px;background:radial-gradient(130% 100% at 18% 8%,#7a6ade 0%,rgba(122,106,222,0) 58%),linear-gradient(160deg,#232544,#141525)"></div>
+        <div style="flex:1;min-width:0"><div style="font-size:15px;font-weight:500;letter-spacing:-0.01em">Longwave</div><div style="font-size:12.5px;color:color-mix(in srgb,var(--color-text) 50%,transparent)">Aster Vale</div></div>
+        <i class="ph ph-list" style="font-size:19px;color:var(--color-neutral-600)"></i>
+      </div>
+      <div style="display:flex;align-items:center;gap:13px;padding:8px 12px">
+        <div style="width:42px;height:42px;border-radius:7px;background:radial-gradient(130% 100% at 18% 8%,#7a6ade 0%,rgba(122,106,222,0) 58%),linear-gradient(160deg,#232544,#141525)"></div>
+        <div style="flex:1;min-width:0"><div style="font-size:15px;font-weight:500;letter-spacing:-0.01em">Nightjar</div><div style="font-size:12.5px;color:color-mix(in srgb,var(--color-text) 50%,transparent)">Aster Vale</div></div>
+        <i class="ph ph-list" style="font-size:19px;color:var(--color-neutral-600)"></i>
+      </div>
+      <div style="display:flex;align-items:center;gap:13px;padding:8px 12px;opacity:.55">
+        <div style="width:42px;height:42px;border-radius:7px;background:radial-gradient(100% 70% at 50% 100%,#2f7fa8 0%,rgba(47,127,168,0) 62%),linear-gradient(180deg,#101a26,#0e1119)"></div>
+        <div style="flex:1;min-width:0"><div style="font-size:15px;font-weight:500;letter-spacing:-0.01em">Signal Hill</div><div style="font-size:12.5px;color:color-mix(in srgb,var(--color-text) 50%,transparent)">Hollow Signal</div></div>
+        <i class="ph ph-list" style="font-size:19px;color:var(--color-neutral-600)"></i>
+      </div>
+    </div>
+    <div style="margin-top:22px;padding-top:16px;border-top:1px solid var(--color-divider);font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:color-mix(in srgb,var(--color-text) 40%,transparent)">Then continues from Longwave</div>
+  </div>
+  <div style="position:absolute;left:50%;transform:translateX(-50%);bottom:8px;width:134px;height:5px;border-radius:3px;background:rgba(233,233,237,.34)"></div>
+</div>
+</div>
+
+<!-- ============ 1j CONTEXT MENU ============ -->
+<div id="1j" style="display:flex;flex-direction:column;gap:9px;scroll-margin-top:16px">
+<div style="display:flex;align-items:baseline;gap:8px;font:400 11px/1.3 var(--font-body);color:color-mix(in srgb,var(--color-text) 55%,transparent)"><a href="#1j" style="font:600 10.5px ui-monospace,Menlo,monospace;padding:3px 7px;background:var(--color-neutral-900);color:var(--color-neutral-300);border-radius:5px;text-decoration:none">1j</a>Song context menu</div>
+<div style="width:393px;height:852px;border-radius:42px;overflow:hidden;position:relative;background:var(--color-bg);color:var(--color-text);box-shadow:var(--shadow-md)">
+  <div style="position:absolute;inset:0;filter:blur(3px);opacity:.35">
+    <div style="height:54px"></div>
+    <div style="padding:8px 20px 0"><h1 style="font-size:34px;margin:0;letter-spacing:-0.03em">Library</h1></div>
+    <div style="padding:24px 20px;display:flex;flex-direction:column;gap:18px">
+      <div style="height:46px;border-radius:8px;background:var(--color-neutral-900)"></div>
+      <div style="height:46px;border-radius:8px;background:var(--color-neutral-900)"></div>
+      <div style="height:46px;border-radius:8px;background:var(--color-neutral-900)"></div>
+    </div>
+  </div>
+  <div style="position:absolute;inset:0;background:rgba(9,10,16,.5)"></div>
+  <div style="position:absolute;left:0;right:0;bottom:0;padding:0 12px 12px">
+    <div style="border-radius:20px;overflow:hidden;background:rgba(35,37,50,.94);backdrop-filter:blur(30px);box-shadow:var(--shadow-md)">
+      <div style="display:flex;align-items:center;gap:13px;padding:16px 18px;border-bottom:1px solid var(--color-neutral-800)">
+        <div style="width:48px;height:48px;border-radius:8px;background:radial-gradient(130% 100% at 18% 8%,#7a6ade 0%,rgba(122,106,222,0) 58%),linear-gradient(160deg,#232544,#141525)"></div>
+        <div style="flex:1;min-width:0"><div style="font-size:15.5px;font-weight:500;letter-spacing:-0.01em">Everything Blue Recedes</div><div style="font-size:12.5px;color:color-mix(in srgb,var(--color-text) 50%,transparent)">Aster Vale · Longwave · 5:06</div></div>
+      </div>
+      <div style="display:flex;flex-direction:column">
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:14px 18px;border-bottom:1px solid var(--color-neutral-800);font-size:16.5px"><span>Play Now</span><i class="ph ph-play" style="font-size:19px;color:var(--color-neutral-300)"></i></div>
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:14px 18px;border-bottom:1px solid var(--color-neutral-800);font-size:16.5px"><span>Play Next</span><i class="ph ph-skip-forward" style="font-size:19px;color:var(--color-neutral-300)"></i></div>
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:14px 18px;border-bottom:1px solid var(--color-neutral-800);font-size:16.5px"><span>Add to Queue</span><i class="ph ph-queue" style="font-size:19px;color:var(--color-neutral-300)"></i></div>
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:14px 18px;border-bottom:1px solid var(--color-neutral-800);font-size:16.5px"><span>Add to Playlist…</span><i class="ph ph-plus-circle" style="font-size:19px;color:var(--color-neutral-300)"></i></div>
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:14px 18px;border-bottom:1px solid var(--color-neutral-800);font-size:16.5px"><span>Favorite</span><i class="ph ph-heart" style="font-size:19px;color:var(--color-neutral-300)"></i></div>
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:14px 18px;border-bottom:1px solid var(--color-neutral-800);font-size:16.5px"><span>View Album</span><i class="ph ph-vinyl-record" style="font-size:19px;color:var(--color-neutral-300)"></i></div>
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:14px 18px;border-bottom:1px solid var(--color-neutral-800);font-size:16.5px"><span>View Artist</span><i class="ph ph-user" style="font-size:19px;color:var(--color-neutral-300)"></i></div>
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:14px 18px;font-size:16.5px;color:var(--color-accent-300)"><span>Remove from Library</span><i class="ph ph-trash" style="font-size:19px"></i></div>
+      </div>
+    </div>
+    <div style="margin-top:8px;border-radius:16px;background:rgba(35,37,50,.94);backdrop-filter:blur(30px);box-shadow:var(--shadow-md);padding:15px 0;text-align:center;font:500 17px var(--font-heading)">Cancel</div>
+    <div style="position:absolute;left:50%;transform:translateX(-50%);bottom:4px;width:134px;height:5px;border-radius:3px;background:var(--color-neutral-700)"></div>
+  </div>
+</div>
+</div>
+
+<!-- ============ 1k PLAYLISTS ============ -->
+<div id="1k" style="display:flex;flex-direction:column;gap:9px;scroll-margin-top:16px">
+<div style="display:flex;align-items:baseline;gap:8px;font:400 11px/1.3 var(--font-body);color:color-mix(in srgb,var(--color-text) 55%,transparent)"><a href="#1k" style="font:600 10.5px ui-monospace,Menlo,monospace;padding:3px 7px;background:var(--color-neutral-900);color:var(--color-neutral-300);border-radius:5px;text-decoration:none">1k</a>Playlists — generated collage artwork</div>
+<div style="width:393px;height:852px;border-radius:42px;overflow:hidden;position:relative;background:var(--color-bg);color:var(--color-text);box-shadow:var(--shadow-md)">
+  <div style="height:54px;display:flex;align-items:flex-end;justify-content:space-between;padding:0 30px 8px;font-size:15px;font-weight:600"><span>9:41</span><span style="display:flex;align-items:center;gap:6px;font-size:14px"><i class="ph-fill ph-cell-signal-high"></i><i class="ph-fill ph-wifi-high"></i><i class="ph-fill ph-battery-full"></i></span></div>
+  <div style="padding:6px 20px 0;display:flex;align-items:flex-end;justify-content:space-between"><h1 style="font-size:34px;letter-spacing:-0.03em;margin:0">Playlists</h1><i class="ph ph-plus" style="font-size:22px;color:var(--color-accent-300);padding-bottom:8px"></i></div>
+  <div style="padding:24px 20px 0;display:grid;grid-template-columns:1fr 1fr;gap:20px 16px">
+    <div>
+      <div style="width:100%;aspect-ratio:1;border-radius:12px;overflow:hidden;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;box-shadow:0 8px 22px rgba(0,0,0,.45)">
+        <div style="background:radial-gradient(130% 100% at 18% 8%,#7a6ade 0%,rgba(122,106,222,0) 58%),linear-gradient(160deg,#232544,#141525)"></div>
+        <div style="background:radial-gradient(90% 80% at 74% 78%,#d3903a 0%,rgba(211,144,58,0) 60%),conic-gradient(from 210deg at 34% 26%,#2c2018,#181320 55%,#241a17)"></div>
+        <div style="background:radial-gradient(100% 70% at 50% 100%,#2f7fa8 0%,rgba(47,127,168,0) 62%),linear-gradient(180deg,#101a26,#0e1119)"></div>
+        <div style="background:linear-gradient(115deg,#b3468f 0%,rgba(179,70,143,0) 52%),linear-gradient(200deg,#33163a,#141020)"></div>
+      </div>
+      <div style="margin-top:10px;font-size:14.5px;font-weight:500;letter-spacing:-0.01em">Late Desk</div>
+      <div style="font-size:12.5px;color:color-mix(in srgb,var(--color-text) 48%,transparent)">31 songs</div>
+    </div>
+    <div>
+      <div style="width:100%;aspect-ratio:1;border-radius:12px;overflow:hidden;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;box-shadow:0 8px 22px rgba(0,0,0,.45)">
+        <div style="background:radial-gradient(80% 80% at 28% 72%,#b0512e 0%,rgba(176,81,46,0) 58%),conic-gradient(from 40deg at 70% 30%,#2a1712,#191320 50%,#221512)"></div>
+        <div style="background:radial-gradient(60% 55% at 50% 46%,#31a096 0%,rgba(49,160,150,0) 72%),linear-gradient(180deg,#10201f,#0d1418)"></div>
+        <div style="background:radial-gradient(130% 100% at 18% 8%,#7a6ade 0%,rgba(122,106,222,0) 58%),linear-gradient(160deg,#232544,#141525)"></div>
+        <div style="background:radial-gradient(90% 80% at 74% 78%,#d3903a 0%,rgba(211,144,58,0) 60%),conic-gradient(from 210deg at 34% 26%,#2c2018,#181320 55%,#241a17)"></div>
+      </div>
+      <div style="margin-top:10px;font-size:14.5px;font-weight:500;letter-spacing:-0.01em">Long Drive North</div>
+      <div style="font-size:12.5px;color:color-mix(in srgb,var(--color-text) 48%,transparent)">18 songs</div>
+    </div>
+    <div>
+      <div style="width:100%;aspect-ratio:1;border-radius:12px;display:grid;place-items:center;background:linear-gradient(180deg,var(--color-neutral-900),rgba(41,43,49,.35));box-shadow:inset 0 0 0 1px var(--color-neutral-800)"><i class="ph-fill ph-heart" style="font-size:38px;color:var(--color-accent-400)"></i></div>
+      <div style="margin-top:10px;font-size:14.5px;font-weight:500;letter-spacing:-0.01em">Favorites</div>
+      <div style="font-size:12.5px;color:color-mix(in srgb,var(--color-text) 48%,transparent)">9 songs</div>
+    </div>
+    <div>
+      <div style="width:100%;aspect-ratio:1;border-radius:12px;display:grid;place-items:center;gap:8px;background:linear-gradient(180deg,rgba(66,58,106,.35),rgba(66,58,106,.08));box-shadow:inset 0 0 0 1px var(--color-accent-800)"><i class="ph ph-plus" style="font-size:28px;color:var(--color-accent-300)"></i></div>
+      <div style="margin-top:10px;font-size:14.5px;font-weight:500;letter-spacing:-0.01em;color:var(--color-accent-300)">New Playlist</div>
+      <div style="font-size:12.5px;color:color-mix(in srgb,var(--color-text) 48%,transparent)">Pick songs later</div>
+    </div>
+  </div>
+  <div style="position:absolute;left:0;right:0;bottom:83px;height:64px;background:linear-gradient(180deg,rgba(122,106,222,.14),rgba(122,106,222,.06)),rgba(30,32,48,.9);backdrop-filter:blur(24px);border-top:1px solid var(--color-divider)">
+    <div style="height:2px;background:var(--color-neutral-900)"><div style="width:42%;height:100%;background:var(--color-accent-400)"></div></div>
+    <div style="display:flex;align-items:center;gap:12px;padding:0 16px;height:62px">
+      <div style="width:42px;height:42px;border-radius:7px;background:radial-gradient(130% 100% at 18% 8%,#7a6ade 0%,rgba(122,106,222,0) 58%),linear-gradient(160deg,#232544,#141525)"></div>
+      <div style="flex:1;min-width:0"><div style="font-size:14.5px;font-weight:500;letter-spacing:-0.01em">Half Light</div><div style="font-size:12px;color:color-mix(in srgb,var(--color-text) 52%,transparent)">Aster Vale</div></div>
+      <i class="ph-fill ph-pause" style="font-size:22px"></i>
+      <i class="ph-fill ph-skip-forward" style="font-size:20px;color:color-mix(in srgb,var(--color-text) 70%,transparent)"></i>
+    </div>
+  </div>
+  <div style="position:absolute;left:0;right:0;bottom:0;height:83px;padding-top:10px;display:grid;grid-template-columns:repeat(4,1fr);background:rgba(22,24,38,.9);backdrop-filter:blur(24px);border-top:1px solid var(--color-divider)">
+    <div style="display:flex;flex-direction:column;align-items:center;gap:4px;font-size:10px;color:var(--color-neutral-600)"><i class="ph ph-vinyl-record" style="font-size:23px"></i>Library</div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:4px;font-size:10px;color:var(--color-accent-300)"><i class="ph-fill ph-list-dashes" style="font-size:23px"></i>Playlists</div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:4px;font-size:10px;color:var(--color-neutral-600)"><i class="ph ph-magnifying-glass" style="font-size:23px"></i>Search</div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:4px;font-size:10px;color:var(--color-neutral-600)"><i class="ph ph-gear-six" style="font-size:23px"></i>Settings</div>
+    <div style="position:absolute;left:50%;transform:translateX(-50%);bottom:8px;width:134px;height:5px;border-radius:3px;background:var(--color-neutral-700)"></div>
+  </div>
+</div>
+</div>
+
+<!-- ============ 1l PLAYLIST DETAIL ============ -->
+<div id="1l" style="display:flex;flex-direction:column;gap:9px;scroll-margin-top:16px">
+<div style="display:flex;align-items:baseline;gap:8px;font:400 11px/1.3 var(--font-body);color:color-mix(in srgb,var(--color-text) 55%,transparent)"><a href="#1l" style="font:600 10.5px ui-monospace,Menlo,monospace;padding:3px 7px;background:var(--color-neutral-900);color:var(--color-neutral-300);border-radius:5px;text-decoration:none">1l</a>Playlist detail</div>
+<div style="width:393px;height:852px;border-radius:42px;overflow:hidden;position:relative;background:var(--color-bg);color:var(--color-text);box-shadow:var(--shadow-md)">
+  <div style="position:absolute;top:0;left:0;right:0;height:380px;background:linear-gradient(180deg,rgba(122,106,222,.22),rgba(122,106,222,0))"></div>
+  <div style="position:relative">
+    <div style="height:54px;display:flex;align-items:flex-end;justify-content:space-between;padding:0 30px 8px;font-size:15px;font-weight:600"><span>9:41</span><span style="display:flex;align-items:center;gap:6px;font-size:14px"><i class="ph-fill ph-cell-signal-high"></i><i class="ph-fill ph-wifi-high"></i><i class="ph-fill ph-battery-full"></i></span></div>
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:2px 20px 0;color:var(--color-accent-300)"><div style="display:flex;align-items:center;gap:4px;font-size:16px"><i class="ph ph-caret-left" style="font-size:19px"></i>Playlists</div><div style="font-size:16px">Edit</div></div>
+    <div style="padding:20px 20px 0;display:flex;gap:16px;align-items:flex-end">
+      <div style="width:132px;height:132px;flex:none;border-radius:13px;overflow:hidden;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;box-shadow:0 14px 34px rgba(0,0,0,.5)">
+        <div style="background:radial-gradient(130% 100% at 18% 8%,#7a6ade 0%,rgba(122,106,222,0) 58%),linear-gradient(160deg,#232544,#141525)"></div>
+        <div style="background:radial-gradient(90% 80% at 74% 78%,#d3903a 0%,rgba(211,144,58,0) 60%),conic-gradient(from 210deg at 34% 26%,#2c2018,#181320 55%,#241a17)"></div>
+        <div style="background:radial-gradient(100% 70% at 50% 100%,#2f7fa8 0%,rgba(47,127,168,0) 62%),linear-gradient(180deg,#101a26,#0e1119)"></div>
+        <div style="background:linear-gradient(115deg,#b3468f 0%,rgba(179,70,143,0) 52%),linear-gradient(200deg,#33163a,#141020)"></div>
+      </div>
+      <div style="min-width:0;padding-bottom:6px">
+        <div style="font:500 24px/1.12 var(--font-heading);letter-spacing:-0.03em">Late Desk</div>
+        <div style="margin-top:8px;font-size:12.5px;color:color-mix(in srgb,var(--color-text) 45%,transparent)">31 songs · 2 hr 8 min</div>
+        <div style="margin-top:2px;font-size:12.5px;color:color-mix(in srgb,var(--color-text) 45%,transparent)">Created 12 Mar 2026</div>
+      </div>
+    </div>
+    <div style="padding:20px 20px 0;display:flex;gap:10px">
+      <div style="flex:1;height:46px;display:flex;align-items:center;justify-content:center;gap:7px;border-radius:12px;border:1px solid var(--color-accent);color:var(--color-accent-300);font:500 15.5px var(--font-heading)"><i class="ph-fill ph-play" style="font-size:15px"></i>Play</div>
+      <div style="flex:1;height:46px;display:flex;align-items:center;justify-content:center;gap:7px;border-radius:12px;border:1px solid var(--color-neutral-700);color:color-mix(in srgb,var(--color-text) 78%,transparent);font:500 15.5px var(--font-heading)"><i class="ph ph-shuffle" style="font-size:16px"></i>Shuffle</div>
+    </div>
+    <div style="padding:24px 20px 0;display:flex;flex-direction:column">
+      <div style="display:flex;align-items:center;gap:13px;padding:9px 0;border-bottom:1px solid var(--color-divider)"><div style="width:44px;height:44px;border-radius:8px;background:radial-gradient(130% 100% at 18% 8%,#7a6ade 0%,rgba(122,106,222,0) 58%),linear-gradient(160deg,#232544,#141525)"></div><div style="flex:1;min-width:0"><div style="font-size:15.5px;font-weight:500;letter-spacing:-0.01em">Sodium</div><div style="font-size:12.5px;color:color-mix(in srgb,var(--color-text) 50%,transparent)">Aster Vale</div></div><i class="ph ph-list" style="font-size:18px;color:var(--color-neutral-700)"></i></div>
+      <div style="display:flex;align-items:center;gap:13px;padding:9px 0;border-bottom:1px solid var(--color-divider)"><div style="width:44px;height:44px;border-radius:8px;background:radial-gradient(90% 80% at 74% 78%,#d3903a 0%,rgba(211,144,58,0) 60%),conic-gradient(from 210deg at 34% 26%,#2c2018,#181320 55%,#241a17)"></div><div style="flex:1;min-width:0"><div style="font-size:15.5px;font-weight:500;letter-spacing:-0.01em">Low Tide Furnace</div><div style="font-size:12.5px;color:color-mix(in srgb,var(--color-text) 50%,transparent)">Márta Nowak</div></div><i class="ph ph-list" style="font-size:18px;color:var(--color-neutral-700)"></i></div>
+      <div style="display:flex;align-items:center;gap:13px;padding:9px 0;border-bottom:1px solid var(--color-divider)"><div style="width:44px;height:44px;border-radius:8px;background:radial-gradient(100% 70% at 50% 100%,#2f7fa8 0%,rgba(47,127,168,0) 62%),linear-gradient(180deg,#101a26,#0e1119)"></div><div style="flex:1;min-width:0"><div style="font-size:15.5px;font-weight:500;letter-spacing:-0.01em">Signal Hill</div><div style="font-size:12.5px;color:color-mix(in srgb,var(--color-text) 50%,transparent)">Hollow Signal</div></div><i class="ph ph-list" style="font-size:18px;color:var(--color-neutral-700)"></i></div>
+      <div style="display:flex;align-items:center;gap:13px;padding:9px 0"><div style="width:44px;height:44px;border-radius:8px;background:linear-gradient(115deg,#b3468f 0%,rgba(179,70,143,0) 52%),linear-gradient(200deg,#33163a,#141020)"></div><div style="flex:1;min-width:0"><div style="font-size:15.5px;font-weight:500;letter-spacing:-0.01em">Nine Rooms</div><div style="font-size:12.5px;color:color-mix(in srgb,var(--color-text) 50%,transparent)">Byrd &amp; Sable</div></div><i class="ph ph-list" style="font-size:18px;color:var(--color-neutral-700)"></i></div>
+    </div>
+  </div>
+  <div style="position:absolute;left:0;right:0;bottom:0;height:83px;padding-top:10px;display:grid;grid-template-columns:repeat(4,1fr);background:rgba(22,24,38,.9);backdrop-filter:blur(24px);border-top:1px solid var(--color-divider)">
+    <div style="display:flex;flex-direction:column;align-items:center;gap:4px;font-size:10px;color:var(--color-neutral-600)"><i class="ph ph-vinyl-record" style="font-size:23px"></i>Library</div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:4px;font-size:10px;color:var(--color-accent-300)"><i class="ph-fill ph-list-dashes" style="font-size:23px"></i>Playlists</div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:4px;font-size:10px;color:var(--color-neutral-600)"><i class="ph ph-magnifying-glass" style="font-size:23px"></i>Search</div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:4px;font-size:10px;color:var(--color-neutral-600)"><i class="ph ph-gear-six" style="font-size:23px"></i>Settings</div>
+    <div style="position:absolute;left:50%;transform:translateX(-50%);bottom:8px;width:134px;height:5px;border-radius:3px;background:var(--color-neutral-700)"></div>
+  </div>
+</div>
+</div>
+
+<!-- ============ 1m NEW PLAYLIST SHEET ============ -->
+<div id="1m" style="display:flex;flex-direction:column;gap:9px;scroll-margin-top:16px">
+<div style="display:flex;align-items:baseline;gap:8px;font:400 11px/1.3 var(--font-body);color:color-mix(in srgb,var(--color-text) 55%,transparent)"><a href="#1m" style="font:600 10.5px ui-monospace,Menlo,monospace;padding:3px 7px;background:var(--color-neutral-900);color:var(--color-neutral-300);border-radius:5px;text-decoration:none">1m</a>New Playlist sheet — keyboard up</div>
+<div style="width:393px;height:852px;border-radius:42px;overflow:hidden;position:relative;background:var(--color-bg);color:var(--color-text);box-shadow:var(--shadow-md)">
+  <div style="position:absolute;inset:0;background:rgba(9,10,16,.55)"></div>
+  <div style="position:absolute;left:0;right:0;top:120px;bottom:0;border-radius:26px 26px 0 0;background:var(--color-surface);box-shadow:0 -1px 0 var(--color-neutral-800),0 -24px 60px rgba(0,0,0,.6);padding:14px 22px 0">
+    <div style="display:flex;align-items:center;justify-content:space-between">
+      <div style="font-size:16px;color:color-mix(in srgb,var(--color-text) 62%,transparent)">Cancel</div>
+      <div style="font:500 17px var(--font-heading)">New Playlist</div>
+      <div style="font-size:16px;font-weight:500;color:var(--color-accent-300)">Create</div>
+    </div>
+    <div style="display:flex;flex-direction:column;align-items:center;padding:30px 0 0">
+      <div style="width:128px;height:128px;border-radius:13px;display:grid;place-items:center;background:linear-gradient(180deg,rgba(66,58,106,.4),rgba(66,58,106,.08));box-shadow:inset 0 0 0 1px var(--color-accent-800)"><i class="ph ph-image-square" style="font-size:32px;color:var(--color-accent-400)"></i></div>
+      <div style="margin-top:10px;font-size:12.5px;color:var(--color-accent-300)">Choose artwork</div>
+    </div>
+    <div style="padding:28px 0 0">
+      <div style="font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:color-mix(in srgb,var(--color-text) 45%,transparent);margin-bottom:8px">Playlist name</div>
+      <div style="height:48px;border-radius:12px;background:var(--color-bg);box-shadow:inset 0 0 0 1px var(--color-accent);display:flex;align-items:center;padding:0 14px;gap:2px"><span style="font-size:16px">Sunday Kitchen</span><span style="width:2px;height:20px;background:var(--color-accent-300)"></span></div>
+      <div style="margin-top:16px;display:flex;align-items:center;justify-content:space-between;padding:12px 14px;border-radius:12px;background:var(--color-bg)"><div style="font-size:15.5px">Add songs now</div><i class="ph ph-caret-right" style="font-size:16px;color:var(--color-neutral-600)"></i></div>
+      <p style="margin:14px 2px 0;font-size:12.5px;line-height:1.5;color:color-mix(in srgb,var(--color-text) 45%,transparent)">Artwork is generated from the songs you add unless you choose your own.</p>
+    </div>
+    <div style="position:absolute;left:0;right:0;bottom:0;height:234px;background:rgba(28,30,42,.98);border-top:1px solid var(--color-neutral-800);padding:10px 5px 0">
+      <div style="display:flex;flex-direction:column;gap:11px">
+        <div style="display:grid;grid-template-columns:repeat(10,1fr);gap:6px">
+          <div style="height:42px;border-radius:6px;background:var(--color-neutral-800);display:grid;place-items:center;font-size:15px">q</div><div style="height:42px;border-radius:6px;background:var(--color-neutral-800);display:grid;place-items:center;font-size:15px">w</div><div style="height:42px;border-radius:6px;background:var(--color-neutral-800);display:grid;place-items:center;font-size:15px">e</div><div style="height:42px;border-radius:6px;background:var(--color-neutral-800);display:grid;place-items:center;font-size:15px">r</div><div style="height:42px;border-radius:6px;background:var(--color-neutral-800);display:grid;place-items:center;font-size:15px">t</div><div style="height:42px;border-radius:6px;background:var(--color-neutral-800);display:grid;place-items:center;font-size:15px">y</div><div style="height:42px;border-radius:6px;background:var(--color-neutral-800);display:grid;place-items:center;font-size:15px">u</div><div style="height:42px;border-radius:6px;background:var(--color-neutral-800);display:grid;place-items:center;font-size:15px">i</div><div style="height:42px;border-radius:6px;background:var(--color-neutral-800);display:grid;place-items:center;font-size:15px">o</div><div style="height:42px;border-radius:6px;background:var(--color-neutral-800);display:grid;place-items:center;font-size:15px">p</div>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(9,1fr);gap:6px;padding:0 18px">
+          <div style="height:42px;border-radius:6px;background:var(--color-neutral-800);display:grid;place-items:center;font-size:15px">a</div><div style="height:42px;border-radius:6px;background:var(--color-neutral-800);display:grid;place-items:center;font-size:15px">s</div><div style="height:42px;border-radius:6px;background:var(--color-neutral-800);display:grid;place-items:center;font-size:15px">d</div><div style="height:42px;border-radius:6px;background:var(--color-neutral-800);display:grid;place-items:center;font-size:15px">f</div><div style="height:42px;border-radius:6px;background:var(--color-neutral-800);display:grid;place-items:center;font-size:15px">g</div><div style="height:42px;border-radius:6px;background:var(--color-neutral-800);display:grid;place-items:center;font-size:15px">h</div><div style="height:42px;border-radius:6px;background:var(--color-neutral-800);display:grid;place-items:center;font-size:15px">j</div><div style="height:42px;border-radius:6px;background:var(--color-neutral-800);display:grid;place-items:center;font-size:15px">k</div><div style="height:42px;border-radius:6px;background:var(--color-neutral-800);display:grid;place-items:center;font-size:15px">l</div>
+        </div>
+        <div style="display:grid;grid-template-columns:1.4fr repeat(7,1fr) 1.4fr;gap:6px">
+          <div style="height:42px;border-radius:6px;background:var(--color-neutral-900);display:grid;place-items:center"><i class="ph-fill ph-arrow-fat-up" style="font-size:16px"></i></div><div style="height:42px;border-radius:6px;background:var(--color-neutral-800);display:grid;place-items:center;font-size:15px">z</div><div style="height:42px;border-radius:6px;background:var(--color-neutral-800);display:grid;place-items:center;font-size:15px">x</div><div style="height:42px;border-radius:6px;background:var(--color-neutral-800);display:grid;place-items:center;font-size:15px">c</div><div style="height:42px;border-radius:6px;background:var(--color-neutral-800);display:grid;place-items:center;font-size:15px">v</div><div style="height:42px;border-radius:6px;background:var(--color-neutral-800);display:grid;place-items:center;font-size:15px">b</div><div style="height:42px;border-radius:6px;background:var(--color-neutral-800);display:grid;place-items:center;font-size:15px">n</div><div style="height:42px;border-radius:6px;background:var(--color-neutral-800);display:grid;place-items:center;font-size:15px">m</div><div style="height:42px;border-radius:6px;background:var(--color-neutral-900);display:grid;place-items:center"><i class="ph ph-backspace" style="font-size:16px"></i></div>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr 3fr 1.6fr;gap:6px">
+          <div style="height:42px;border-radius:6px;background:var(--color-neutral-900);display:grid;place-items:center;font-size:14px">123</div><div style="height:42px;border-radius:6px;background:var(--color-neutral-900);display:grid;place-items:center"><i class="ph ph-smiley" style="font-size:17px"></i></div><div style="height:42px;border-radius:6px;background:var(--color-neutral-800)"></div><div style="height:42px;border-radius:6px;background:var(--color-accent-800);display:grid;place-items:center;font-size:14px;color:var(--color-accent-200)">done</div>
+        </div>
+      </div>
+      <div style="position:absolute;left:50%;transform:translateX(-50%);bottom:6px;width:134px;height:5px;border-radius:3px;background:var(--color-neutral-700)"></div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ============ 1n SEARCH IDLE ============ -->
+<div id="1n" style="display:flex;flex-direction:column;gap:9px;scroll-margin-top:16px">
+<div style="display:flex;align-items:baseline;gap:8px;font:400 11px/1.3 var(--font-body);color:color-mix(in srgb,var(--color-text) 55%,transparent)"><a href="#1n" style="font:600 10.5px ui-monospace,Menlo,monospace;padding:3px 7px;background:var(--color-neutral-900);color:var(--color-neutral-300);border-radius:5px;text-decoration:none">1n</a>Search — idle</div>
+<div style="width:393px;height:852px;border-radius:42px;overflow:hidden;position:relative;background:var(--color-bg);color:var(--color-text);box-shadow:var(--shadow-md)">
+  <div style="height:54px;display:flex;align-items:flex-end;justify-content:space-between;padding:0 30px 8px;font-size:15px;font-weight:600"><span>9:41</span><span style="display:flex;align-items:center;gap:6px;font-size:14px"><i class="ph-fill ph-cell-signal-high"></i><i class="ph-fill ph-wifi-high"></i><i class="ph-fill ph-battery-full"></i></span></div>
+  <div style="padding:6px 20px 0"><h1 style="font-size:34px;letter-spacing:-0.03em;margin:0">Search</h1></div>
+  <div style="padding:18px 20px 0"><div style="height:44px;border-radius:12px;background:var(--color-neutral-900);display:flex;align-items:center;gap:9px;padding:0 13px"><i class="ph ph-magnifying-glass" style="font-size:17px;color:var(--color-neutral-500)"></i><span style="font-size:16px;color:var(--color-neutral-500)">Songs, albums, artists</span></div></div>
+  <div style="padding:30px 20px 0">
+    <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:12px"><div style="font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:color-mix(in srgb,var(--color-text) 45%,transparent)">Recent searches</div><div style="font-size:13px;color:var(--color-accent-300)">Clear</div></div>
+    <div style="display:flex;flex-direction:column">
+      <div style="display:flex;align-items:center;gap:12px;padding:11px 0;border-bottom:1px solid var(--color-divider)"><i class="ph ph-clock-counter-clockwise" style="font-size:17px;color:var(--color-neutral-600)"></i><span style="flex:1;font-size:15.5px">nowak</span><i class="ph ph-x" style="font-size:14px;color:var(--color-neutral-700)"></i></div>
+      <div style="display:flex;align-items:center;gap:12px;padding:11px 0;border-bottom:1px solid var(--color-divider)"><i class="ph ph-clock-counter-clockwise" style="font-size:17px;color:var(--color-neutral-600)"></i><span style="flex:1;font-size:15.5px">longwave</span><i class="ph ph-x" style="font-size:14px;color:var(--color-neutral-700)"></i></div>
+      <div style="display:flex;align-items:center;gap:12px;padding:11px 0"><i class="ph ph-clock-counter-clockwise" style="font-size:17px;color:var(--color-neutral-600)"></i><span style="flex:1;font-size:15.5px">hymn</span><i class="ph ph-x" style="font-size:14px;color:var(--color-neutral-700)"></i></div>
+    </div>
+  </div>
+  <div style="padding:32px 20px 0">
+    <div style="font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:color-mix(in srgb,var(--color-text) 45%,transparent);margin-bottom:12px">Browse by</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+      <div style="height:64px;border-radius:12px;background:var(--color-neutral-900);display:flex;align-items:center;gap:11px;padding:0 15px"><i class="ph ph-music-notes-simple" style="font-size:20px;color:var(--color-accent-300)"></i><span style="font-size:15px;font-weight:500">Songs</span></div>
+      <div style="height:64px;border-radius:12px;background:var(--color-neutral-900);display:flex;align-items:center;gap:11px;padding:0 15px"><i class="ph ph-vinyl-record" style="font-size:20px;color:var(--color-accent-300)"></i><span style="font-size:15px;font-weight:500">Albums</span></div>
+      <div style="height:64px;border-radius:12px;background:var(--color-neutral-900);display:flex;align-items:center;gap:11px;padding:0 15px"><i class="ph ph-user" style="font-size:20px;color:var(--color-accent-300)"></i><span style="font-size:15px;font-weight:500">Artists</span></div>
+      <div style="height:64px;border-radius:12px;background:var(--color-neutral-900);display:flex;align-items:center;gap:11px;padding:0 15px"><i class="ph ph-file-audio" style="font-size:20px;color:var(--color-accent-300)"></i><span style="font-size:15px;font-weight:500">Formats</span></div>
+    </div>
+  </div>
+  <div style="position:absolute;left:0;right:0;bottom:0;height:83px;padding-top:10px;display:grid;grid-template-columns:repeat(4,1fr);background:rgba(22,24,38,.9);backdrop-filter:blur(24px);border-top:1px solid var(--color-divider)">
+    <div style="display:flex;flex-direction:column;align-items:center;gap:4px;font-size:10px;color:var(--color-neutral-600)"><i class="ph ph-vinyl-record" style="font-size:23px"></i>Library</div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:4px;font-size:10px;color:var(--color-neutral-600)"><i class="ph ph-list-dashes" style="font-size:23px"></i>Playlists</div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:4px;font-size:10px;color:var(--color-accent-300)"><i class="ph-fill ph-magnifying-glass" style="font-size:23px"></i>Search</div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:4px;font-size:10px;color:var(--color-neutral-600)"><i class="ph ph-gear-six" style="font-size:23px"></i>Settings</div>
+    <div style="position:absolute;left:50%;transform:translateX(-50%);bottom:8px;width:134px;height:5px;border-radius:3px;background:var(--color-neutral-700)"></div>
+  </div>
+</div>
+</div>
+
+<!-- ============ 1o SEARCH RESULTS ============ -->
+<div id="1o" style="display:flex;flex-direction:column;gap:9px;scroll-margin-top:16px">
+<div style="display:flex;align-items:baseline;gap:8px;font:400 11px/1.3 var(--font-body);color:color-mix(in srgb,var(--color-text) 55%,transparent)"><a href="#1o" style="font:600 10.5px ui-monospace,Menlo,monospace;padding:3px 7px;background:var(--color-neutral-900);color:var(--color-neutral-300);border-radius:5px;text-decoration:none">1o</a>Search results — live, sectioned</div>
+<div style="width:393px;height:852px;border-radius:42px;overflow:hidden;position:relative;background:var(--color-bg);color:var(--color-text);box-shadow:var(--shadow-md)">
+  <div style="height:54px;display:flex;align-items:flex-end;justify-content:space-between;padding:0 30px 8px;font-size:15px;font-weight:600"><span>9:41</span><span style="display:flex;align-items:center;gap:6px;font-size:14px"><i class="ph-fill ph-cell-signal-high"></i><i class="ph-fill ph-wifi-high"></i><i class="ph-fill ph-battery-full"></i></span></div>
+  <div style="padding:12px 20px 0;display:flex;align-items:center;gap:12px">
+    <div style="flex:1;height:44px;border-radius:12px;background:var(--color-neutral-900);box-shadow:inset 0 0 0 1px var(--color-accent-800);display:flex;align-items:center;gap:9px;padding:0 13px"><i class="ph ph-magnifying-glass" style="font-size:17px;color:var(--color-accent-300)"></i><span style="font-size:16px">salt</span><span style="width:2px;height:19px;background:var(--color-accent-300)"></span><i class="ph-fill ph-x-circle" style="margin-left:auto;font-size:17px;color:var(--color-neutral-600)"></i></div>
+    <div style="font-size:16px;color:var(--color-accent-300)">Cancel</div>
+  </div>
+  <div style="padding:22px 20px 0">
+    <div style="font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:color-mix(in srgb,var(--color-text) 45%,transparent);margin-bottom:10px">Top result</div>
+    <div style="display:flex;align-items:center;gap:14px;padding:12px;border-radius:14px;background:var(--color-surface);box-shadow:var(--shadow-sm)">
+      <div style="width:62px;height:62px;border-radius:10px;background:radial-gradient(90% 80% at 74% 78%,#d3903a 0%,rgba(211,144,58,0) 60%),conic-gradient(from 210deg at 34% 26%,#2c2018,#181320 55%,#241a17)"></div>
+      <div style="flex:1;min-width:0"><div style="font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:color-mix(in srgb,var(--color-text) 45%,transparent)">Album</div><div style="margin-top:3px;font-size:17px;font-weight:500;letter-spacing:-0.015em">Salt Kilns</div><div style="font-size:12.5px;color:color-mix(in srgb,var(--color-text) 50%,transparent)">Márta Nowak · 8 songs</div></div>
+      <i class="ph-fill ph-play-circle" style="font-size:28px;color:var(--color-accent-400)"></i>
+    </div>
+  </div>
+  <div style="padding:26px 20px 0">
+    <div style="font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:color-mix(in srgb,var(--color-text) 45%,transparent);margin-bottom:8px">Songs</div>
+    <div style="display:flex;flex-direction:column">
+      <div style="display:flex;align-items:center;gap:13px;padding:9px 0;border-bottom:1px solid var(--color-divider)"><div style="width:42px;height:42px;border-radius:7px;background:radial-gradient(90% 80% at 74% 78%,#d3903a 0%,rgba(211,144,58,0) 60%),conic-gradient(from 210deg at 34% 26%,#2c2018,#181320 55%,#241a17)"></div><div style="flex:1;min-width:0"><div style="font-size:15.5px;font-weight:500;letter-spacing:-0.01em"><span style="color:var(--color-accent-200)">Salt</span>water Hymn</div><div style="font-size:12.5px;color:color-mix(in srgb,var(--color-text) 50%,transparent)">Márta Nowak · Salt Kilns</div></div><i class="ph ph-dots-three" style="font-size:18px;color:var(--color-neutral-600)"></i></div>
+      <div style="display:flex;align-items:center;gap:13px;padding:9px 0;border-bottom:1px solid var(--color-divider)"><div style="width:42px;height:42px;border-radius:7px;background:radial-gradient(90% 80% at 74% 78%,#d3903a 0%,rgba(211,144,58,0) 60%),conic-gradient(from 210deg at 34% 26%,#2c2018,#181320 55%,#241a17)"></div><div style="flex:1;min-width:0"><div style="font-size:15.5px;font-weight:500;letter-spacing:-0.01em">Low Tide Furnace</div><div style="font-size:12.5px;color:color-mix(in srgb,var(--color-text) 50%,transparent)">Márta Nowak · <span style="color:var(--color-accent-200)">Salt</span> Kilns</div></div><i class="ph ph-dots-three" style="font-size:18px;color:var(--color-neutral-600)"></i></div>
+      <div style="display:flex;align-items:center;gap:13px;padding:9px 0"><div style="width:42px;height:42px;border-radius:7px;background:radial-gradient(60% 55% at 50% 46%,#31a096 0%,rgba(49,160,150,0) 72%),linear-gradient(180deg,#10201f,#0d1418)"></div><div style="flex:1;min-width:0"><div style="font-size:15.5px;font-weight:500;letter-spacing:-0.01em"><span style="color:var(--color-accent-200)">Salt</span> Flat Drone</div><div style="font-size:12.5px;color:color-mix(in srgb,var(--color-text) 50%,transparent)">Odeon Field · Pale Instrument</div></div><i class="ph ph-dots-three" style="font-size:18px;color:var(--color-neutral-600)"></i></div>
+    </div>
+  </div>
+  <div style="padding:24px 20px 0">
+    <div style="font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:color-mix(in srgb,var(--color-text) 45%,transparent);margin-bottom:8px">Playlists</div>
+    <div style="display:flex;align-items:center;gap:13px;padding:9px 0"><div style="width:42px;height:42px;border-radius:7px;overflow:hidden;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr"><div style="background:#2b2a44"></div><div style="background:#3a2a1c"></div><div style="background:#12222b"></div><div style="background:#2c1730"></div></div><div style="flex:1;min-width:0"><div style="font-size:15.5px;font-weight:500;letter-spacing:-0.01em"><span style="color:var(--color-accent-200)">Salt</span> &amp; Static</div><div style="font-size:12.5px;color:color-mix(in srgb,var(--color-text) 50%,transparent)">12 songs</div></div><i class="ph ph-caret-right" style="font-size:15px;color:var(--color-neutral-600)"></i></div>
+  </div>
+  <div style="position:absolute;left:0;right:0;bottom:0;height:83px;padding-top:10px;display:grid;grid-template-columns:repeat(4,1fr);background:rgba(22,24,38,.9);backdrop-filter:blur(24px);border-top:1px solid var(--color-divider)">
+    <div style="display:flex;flex-direction:column;align-items:center;gap:4px;font-size:10px;color:var(--color-neutral-600)"><i class="ph ph-vinyl-record" style="font-size:23px"></i>Library</div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:4px;font-size:10px;color:var(--color-neutral-600)"><i class="ph ph-list-dashes" style="font-size:23px"></i>Playlists</div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:4px;font-size:10px;color:var(--color-accent-300)"><i class="ph-fill ph-magnifying-glass" style="font-size:23px"></i>Search</div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:4px;font-size:10px;color:var(--color-neutral-600)"><i class="ph ph-gear-six" style="font-size:23px"></i>Settings</div>
+    <div style="position:absolute;left:50%;transform:translateX(-50%);bottom:8px;width:134px;height:5px;border-radius:3px;background:var(--color-neutral-700)"></div>
+  </div>
+</div>
+</div>
+
+<!-- ============ 1p SETTINGS ============ -->
+<div id="1p" style="display:flex;flex-direction:column;gap:9px;scroll-margin-top:16px">
+<div style="display:flex;align-items:baseline;gap:8px;font:400 11px/1.3 var(--font-body);color:color-mix(in srgb,var(--color-text) 55%,transparent)"><a href="#1p" style="font:600 10.5px ui-monospace,Menlo,monospace;padding:3px 7px;background:var(--color-neutral-900);color:var(--color-neutral-300);border-radius:5px;text-decoration:none">1p</a>Settings</div>
+<div style="width:393px;height:852px;border-radius:42px;overflow:hidden;position:relative;background:var(--color-bg);color:var(--color-text);box-shadow:var(--shadow-md)">
+  <div style="height:54px;display:flex;align-items:flex-end;justify-content:space-between;padding:0 30px 8px;font-size:15px;font-weight:600"><span>9:41</span><span style="display:flex;align-items:center;gap:6px;font-size:14px"><i class="ph-fill ph-cell-signal-high"></i><i class="ph-fill ph-wifi-high"></i><i class="ph-fill ph-battery-full"></i></span></div>
+  <div style="padding:6px 20px 0"><h1 style="font-size:34px;letter-spacing:-0.03em;margin:0">Settings</h1></div>
+  <div style="padding:24px 20px 0">
+    <div style="font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:color-mix(in srgb,var(--color-text) 45%,transparent);margin-bottom:8px">Library</div>
+    <div style="border-radius:12px;overflow:hidden;background:var(--color-neutral-900);display:flex;flex-direction:column;gap:1px">
+      <div style="display:flex;align-items:center;gap:12px;padding:13px 14px;background:var(--color-surface)"><i class="ph ph-tray-arrow-down" style="font-size:18px;color:var(--color-accent-300)"></i><span style="flex:1;font-size:15.5px">Import Music</span><i class="ph ph-caret-right" style="font-size:15px;color:var(--color-neutral-600)"></i></div>
+      <div style="display:flex;align-items:center;gap:12px;padding:13px 14px;background:var(--color-surface)"><i class="ph ph-arrows-clockwise" style="font-size:18px;color:var(--color-accent-300)"></i><span style="flex:1;font-size:15.5px">Rescan Library</span><i class="ph ph-caret-right" style="font-size:15px;color:var(--color-neutral-600)"></i></div>
+      <div style="display:flex;align-items:center;gap:12px;padding:13px 14px;background:var(--color-surface)"><i class="ph ph-hard-drives" style="font-size:18px;color:var(--color-accent-300)"></i><span style="flex:1;font-size:15.5px">Storage Used</span><span style="font-size:14.5px;color:color-mix(in srgb,var(--color-text) 50%,transparent)">4.7 GB</span></div>
+    </div>
+  </div>
+  <div style="padding:22px 20px 0">
+    <div style="font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:color-mix(in srgb,var(--color-text) 45%,transparent);margin-bottom:8px">Playback</div>
+    <div style="border-radius:12px;overflow:hidden;background:var(--color-neutral-900);display:flex;flex-direction:column;gap:1px">
+      <div style="display:flex;align-items:center;gap:12px;padding:11px 14px;background:var(--color-surface)"><span style="flex:1;font-size:15.5px">Gapless Playback</span><div style="width:48px;height:29px;border-radius:15px;background:var(--color-accent-700);display:flex;align-items:center;justify-content:flex-end;padding:0 3px"><div style="width:23px;height:23px;border-radius:12px;background:var(--color-accent-100)"></div></div></div>
+      <div style="display:flex;align-items:center;gap:12px;padding:11px 14px;background:var(--color-surface)"><span style="flex:1;font-size:15.5px">Crossfade</span><span style="font-size:14.5px;color:color-mix(in srgb,var(--color-text) 50%,transparent)">Off</span><i class="ph ph-caret-right" style="font-size:15px;color:var(--color-neutral-600)"></i></div>
+      <div style="display:flex;align-items:center;gap:12px;padding:11px 14px;background:var(--color-surface)"><span style="flex:1;font-size:15.5px">Remember Position</span><div style="width:48px;height:29px;border-radius:15px;background:var(--color-accent-700);display:flex;align-items:center;justify-content:flex-end;padding:0 3px"><div style="width:23px;height:23px;border-radius:12px;background:var(--color-accent-100)"></div></div></div>
+      <div style="display:flex;align-items:center;gap:12px;padding:11px 14px;background:var(--color-surface)"><span style="flex:1;font-size:15.5px">Shuffle Mode</span><span style="font-size:14.5px;color:color-mix(in srgb,var(--color-text) 50%,transparent)">Songs</span><i class="ph ph-caret-right" style="font-size:15px;color:var(--color-neutral-600)"></i></div>
+    </div>
+  </div>
+  <div style="padding:22px 20px 0">
+    <div style="font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:color-mix(in srgb,var(--color-text) 45%,transparent);margin-bottom:8px">Appearance</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:3px;padding:3px;border-radius:11px;background:var(--color-neutral-900)">
+      <div style="height:34px;display:grid;place-items:center;border-radius:9px;font-size:14px;color:color-mix(in srgb,var(--color-text) 60%,transparent)">Light</div>
+      <div style="height:34px;display:grid;place-items:center;border-radius:9px;font-size:14px;font-weight:500;background:var(--color-surface);box-shadow:inset 0 0 0 1px var(--color-accent-800);color:var(--color-accent-200)">Dark</div>
+      <div style="height:34px;display:grid;place-items:center;border-radius:9px;font-size:14px;color:color-mix(in srgb,var(--color-text) 60%,transparent)">System</div>
+    </div>
+  </div>
+  <div style="padding:22px 20px 0">
+    <div style="font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:color-mix(in srgb,var(--color-text) 45%,transparent);margin-bottom:8px">About</div>
+    <div style="border-radius:12px;overflow:hidden;background:var(--color-neutral-900);display:flex;flex-direction:column;gap:1px">
+      <div style="display:flex;align-items:center;gap:12px;padding:13px 14px;background:var(--color-surface)"><span style="flex:1;font-size:15.5px">Version</span><span style="font-size:14.5px;color:color-mix(in srgb,var(--color-text) 50%,transparent)">1.0 (14)</span></div>
+      <div style="display:flex;align-items:center;gap:12px;padding:13px 14px;background:var(--color-surface)"><span style="flex:1;font-size:15.5px">Privacy</span><i class="ph ph-caret-right" style="font-size:15px;color:var(--color-neutral-600)"></i></div>
+    </div>
+    <p style="margin:14px 4px 0;font-size:12.5px;line-height:1.5;color:color-mix(in srgb,var(--color-text) 42%,transparent)">All music is stored on this iPhone. Nothing is uploaded, streamed or analysed off-device.</p>
+  </div>
+  <div style="position:absolute;left:0;right:0;bottom:0;height:83px;padding-top:10px;display:grid;grid-template-columns:repeat(4,1fr);background:rgba(22,24,38,.9);backdrop-filter:blur(24px);border-top:1px solid var(--color-divider)">
+    <div style="display:flex;flex-direction:column;align-items:center;gap:4px;font-size:10px;color:var(--color-neutral-600)"><i class="ph ph-vinyl-record" style="font-size:23px"></i>Library</div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:4px;font-size:10px;color:var(--color-neutral-600)"><i class="ph ph-list-dashes" style="font-size:23px"></i>Playlists</div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:4px;font-size:10px;color:var(--color-neutral-600)"><i class="ph ph-magnifying-glass" style="font-size:23px"></i>Search</div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:4px;font-size:10px;color:var(--color-accent-300)"><i class="ph-fill ph-gear-six" style="font-size:23px"></i>Settings</div>
+    <div style="position:absolute;left:50%;transform:translateX(-50%);bottom:8px;width:134px;height:5px;border-radius:3px;background:var(--color-neutral-700)"></div>
+  </div>
+</div>
+</div>
+
+</div>
+<p style="margin:30px 0 0;font:12px/1.5 var(--font-body);color:color-mix(in srgb,var(--color-text) 45%,transparent)">Try next: “prototype the import → library flow from <a href="#1a" style="color:var(--color-accent-300)">1a</a> to <a href="#1e" style="color:var(--color-accent-300)">1e</a>” · “push the artwork tint further on <a href="#1h" style="color:var(--color-accent-300)">1h</a>” · “show a light-mode <a href="#1e" style="color:var(--color-accent-300)">1e</a>”</p>
+</section>
+
+</x-dc>
+</body>
+</html>
