@@ -53,9 +53,9 @@ workflows:
           mkdir -p ipa/Payload
           cp -R build/ios_derived/Build/Products/Release-iphoneos/Runner.app ipa/Payload/
           cd ipa
-          zip -r ../Listeny-unsigned.ipa Payload
+          zip -r ../Listeny-Lite-unsigned.ipa Payload
     artifacts:
-      - Listeny-unsigned.ipa
+      - Listeny-Lite-unsigned.ipa
     triggering:
       events:
         - push
