@@ -25,6 +25,11 @@ class FakePlaybackService implements PlaybackService {
   ValueStream<Track?> get currentTrack => currentTrackSubject.stream;
   @override
   ValueStream<String?> get contextName => contextNameSubject.stream;
+  final stopAfterSubject = BehaviorSubject<String?>.seeded(null);
+  @override
+  ValueStream<String?> get stopAfterTrackId => stopAfterSubject.stream;
+  @override
+  void setStopAfterTrack(String? trackId) => stopAfterSubject.add(trackId);
   @override
   ValueStream<Duration> get position => positionSubject.stream;
   @override

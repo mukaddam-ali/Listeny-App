@@ -238,6 +238,7 @@ class MediaUrlResolverRegistry {
     final urlClass = const UrlClassifier().classifyUri(url);
     if (policy.allows(urlClass)) return null;
     switch (urlClass) {
+      case UrlClass.youtube:
       case UrlClass.instagram:
       case UrlClass.facebook:
       case UrlClass.googleDrive:

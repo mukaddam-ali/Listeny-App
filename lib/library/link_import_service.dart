@@ -331,7 +331,7 @@ class LinkImportService {
         MediaResolutionFailure.mediaUnavailable =>
           'This video is unavailable or the site blocked the request.',
         MediaResolutionFailure.downloadNotPermitted =>
-          'Downloading from this service is turned off.',
+          "Listeny Lite can't download from this site. Use a direct link to a file.",
         _ => 'Couldn\'t download this link.',
       };
       controller.add(

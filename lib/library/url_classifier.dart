@@ -7,6 +7,7 @@ enum UrlClass {
   directAudio,
   directVideo,
   genericWebpage,
+  youtube,
   instagram,
   facebook,
   googleDrive,
@@ -38,6 +39,7 @@ const directMediaExtensionKinds = <String, MediaSourceKind>{
 class UrlClassifier {
   const UrlClassifier();
 
+  static const _youtubeHosts = ['youtube.com', 'youtu.be'];
   static const _instagramHosts = ['instagram.com', 'instagr.am'];
   static const _facebookHosts = ['facebook.com', 'fb.com', 'fb.watch'];
   static const _googleDriveHosts = [
@@ -66,6 +68,7 @@ class UrlClassifier {
 
     // Provider first: a provider link ending in ".mp4" is still that
     // provider's link, not a direct file.
+    if (_matches(host, _youtubeHosts)) return UrlClass.youtube;
     if (_matches(host, _instagramHosts)) return UrlClass.instagram;
     if (_matches(host, _facebookHosts)) return UrlClass.facebook;
     if (_matches(host, _googleDriveHosts)) return UrlClass.googleDrive;

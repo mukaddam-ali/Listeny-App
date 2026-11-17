@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../merge/merge_flow.dart';
 import 'package:provider/provider.dart';
 
 import '../../core/diagnostics/startup_log.dart';
@@ -83,6 +84,14 @@ class _LibraryScreenState extends State<LibraryScreen> {
     if (mounted) setState(() => _selectedIds.clear());
   }
 
+  Future<void> _mergeSelected(List<Track> allTracks) async {
+    final selected = [
+      for (final id in _selectedIds) ...allTracks.where((t) => t.id == id),
+    ];
+    final added = await runMergeFlow(context, selected);
+    if (added && mounted) setState(_selectedIds.clear);
+  }
+
   @override
   Widget build(BuildContext context) {
     StartupLog.markOnce('tab-Library', 'tab Library first build');
@@ -121,6 +130,12 @@ class _LibraryScreenState extends State<LibraryScreen> {
                 ),
                 actions: _selectionMode
                     ? [
+                        if (_selectedIds.length == 2)
+                          IconButton(
+                            icon: const Icon(Icons.merge_type),
+                            tooltip: l10n.mergeTooltip,
+                            onPressed: () => _mergeSelected(allTracks),
+                          ),
                         IconButton(
                           icon: const Icon(Icons.playlist_add),
                           tooltip: l10n.commonAddToPlaylistTooltip,

@@ -222,6 +222,67 @@ class ListenyAudioHandler extends BaseAudioHandler with SeekHandler {
   final Expando<MediaItem> _mediaItemForSource = Expando<MediaItem>();
   final _pendingPlaybackChanges = PendingPlaybackChangeTracker();
 
+  // "Stop after this track": the id of the item that, once it finishes on its
+  // own (moving on to the next one or repeating), pauses playback instead.
+  final BehaviorSubject<String?> _stopAfterId = BehaviorSubject.seeded(null);
+  ValueStream<String?> get stopAfterTrackId => _stopAfterId.stream;
+  void setStopAfterTrack(String? trackId) => _stopAfterId.add(trackId);
+
+  MediaItem? _itemAt(int? index) {
+    final seq = _player.sequence;
+    if (index == null || index < 0 || index >= seq.length) return null;
+    return _mediaItemForSource[seq[index]];
+  }
+
+  /// Ends the armed "stop after this track": pauses and puts the finished
+  /// track (at [index]) back at its start, so the app shows it stopped
+  /// instead of silently moving on.
+  void _finishStopAfter(int index) {
+    _stopAfterId.add(null);
+    unawaited(pause());
+    unawaited(
+      _pendingPlaybackChanges
+          .track(() => _player.seek(Duration.zero, index: index))
+          .catchError((Object e) {
+            if (kDebugMode) debugPrint('stop-after seek failed: $e');
+          }),
+    );
+  }
+
+  // Main path: stop just BEFORE the track's end, so the next one never starts.
+  void _checkStopAfterNearEnd(Duration position) {
+    final armed = _stopAfterId.value;
+    if (armed == null) return;
+    final index = _player.currentIndex;
+    final duration = _player.duration;
+    if (index == null || duration == null || duration == Duration.zero) return;
+    if (_itemAt(index)?.id != armed) return;
+    if (duration - position <= const Duration(milliseconds: 150)) {
+      _finishStopAfter(index);
+    }
+  }
+
+  // Fallback: the player rolled over to the next item (or repeated this one)
+  // before the check above could fire.
+  void _handleDiscontinuity(PositionDiscontinuity d) {
+    final armed = _stopAfterId.value;
+    if (armed == null) return;
+    if (d.reason == PositionDiscontinuityReason.autoAdvance) {
+      final finishedIndex = d.previousEvent.currentIndex;
+      if (finishedIndex != null && _itemAt(finishedIndex)?.id == armed) {
+        _stopAfterId.add(null);
+        unawaited(pause());
+        Future<void>.delayed(
+          const Duration(milliseconds: 200),
+          () => _finishStopAfter(finishedIndex),
+        );
+      }
+    } else if (_itemAt(_player.currentIndex)?.id != armed) {
+      // The user jumped to a different track: the request no longer applies.
+      _stopAfterId.add(null);
+    }
+  }
+
   ListenyAudioHandler() {
     StartupLog.mark('ListenyAudioHandler constructor entered');
     _shuffleOrder = DisplayOrderShuffleOrder();
@@ -290,6 +351,13 @@ class ListenyAudioHandler extends BaseAudioHandler with SeekHandler {
     _player.processingStateStream.distinct().listen(
       _handleProcessingStateChanged,
     );
+    _player.positionDiscontinuityStream.listen(_handleDiscontinuity);
+    _player
+        .createPositionStream(
+          minPeriod: const Duration(milliseconds: 40),
+          maxPeriod: const Duration(milliseconds: 40),
+        )
+        .listen(_checkStopAfterNearEnd);
     StartupLog.mark('ListenyAudioHandler listeners/streams installed');
     StartupLog.mark('ListenyAudioHandler._init completed');
   }
@@ -476,6 +544,7 @@ class ListenyAudioHandler extends BaseAudioHandler with SeekHandler {
     PlayTapTrace? trace,
   }) async {
     final generation = _autoPlayIntent.begin();
+    _stopAfterId.add(null);
     if (trace != null && PerfLog.enabled) {
       final hadSources = _player.audioSources.isNotEmpty;
       final loadedIds = queue.value.map((i) => i.id).toList();

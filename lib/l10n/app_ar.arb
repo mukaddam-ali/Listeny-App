@@ -216,5 +216,18 @@
   "importVideoFromGallery": "من الاستوديو / الصور",
   "importVideoFromFiles": "من الملفات",
   "importVideoNameTitle": "سمِّ هذا المقطع",
-  "importVideoNameHint": "اسم المقطع"
+  "importVideoNameHint": "اسم المقطع",
+  "mergeTooltip": "دمج مقطعين",
+  "mergeTitle": "دمج مقطعين",
+  "mergeFirst": "الأول",
+  "mergeSecond": "الثاني",
+  "mergeSwap": "عكس الترتيب",
+  "mergeNameLabel": "اسم المقطع الجديد",
+  "mergeConfirm": "دمج",
+  "mergeWorking": "جارٍ الدمج…",
+  "mergeSaved": "تم حفظ المقطع المدموج",
+  "mergeFailed": "تعذّر دمج المقطعين",
+  "mergeDuplicate": "هذا المقطع المدموج موجود بالمكتبة",
+  "contextMenuStopAfter": "توقف بعد هذا المقطع",
+  "contextMenuCancelStopAfter": "إلغاء التوقف بعد هذا المقطع"
 }

@@ -14,13 +14,13 @@
 
 **Your audio, on your phone, without the cloud.**
 
-A private audio player for Android. **No ads, no account, no tracking**, and it works without internet. It can also download audio from direct links.
+A private audio player for Android and iPhone. **No ads, no account, no tracking**, and it works without internet. Import files, turn videos into MP3, trim and merge recordings, and download from direct links.
 
 <br/>
 
 [**⬇ Download for Android**](https://github.com/mukaddam-ali/Listeny-App/releases/latest)
 
-Version 1.3.1 &nbsp;·&nbsp; Android 7.0 or newer &nbsp;·&nbsp; about 150 MB
+Version 1.6.1 &nbsp;·&nbsp; Android 7.0 or newer &nbsp;·&nbsp; about 150 MB &nbsp;·&nbsp; iPhone build also available (see Download)
 
 </div>
 
@@ -34,7 +34,7 @@ Most players want you to sign in, sync to a server or stream everything. Listeny
 - **Private by design.** Nothing is uploaded. The library is a database that lives on your phone.
 - **Built for listening.** Skip back and forward 10 seconds, remember where you stopped, keep playing with the screen off.
 - **Tidy.** Tracks, albums, playlists and favourites, with fast search.
-- **Yours to edit.** Rename tracks, trim them, or pull the audio out of a video.
+- **Yours to edit.** Rename tracks, trim them, merge two into one, or pull the audio out of a video.
 
 ## Everything it can do
 
@@ -45,13 +45,14 @@ Most players want you to sign in, sync to a server or stream everything. Listeny
 - **Download from links.** Paste a direct link to an audio or video file and Listeny saves it as an MP3. You can run up to three downloads at once, cancel any of them, and see a history of what you downloaded.
 - **Sync what's already on your phone.** Optional, and it never copies or deletes your files.
 - **Skip duplicates.** Adding the same file twice won't clutter your library.
-- **Files you can find.** Downloads, video conversions and trimmed tracks are saved in `Music/Listeny`, so they show up in your file manager (Android 11 and newer).
+- **Files you can find.** Downloads, video conversions, merged and trimmed tracks are saved in `Music/Listeny`, so they show up in your file manager (Android 11 and newer).
 
 **Listening**
 
 - Keeps playing with the screen off, in the background, or with the phone locked.
 - **Controls everywhere:** notification shade, lock screen, and Bluetooth or headset buttons.
 - Seek bar, 10-second back and forward, shuffle and repeat.
+- **Stop after this track:** one tap and playback ends when the current track finishes, instead of moving on or repeating. Handy for falling asleep to a lecture.
 - **Queue:** play now, play next, add to queue, drag to reorder, clear what's left.
 - Remembers your queue and position when you reopen the app. It never starts playing by itself.
 - Optional setting to keep playing after you close the app.
@@ -67,8 +68,10 @@ Most players want you to sign in, sync to a server or stream everything. Listeny
 
 **Editing**
 
+- **Merge two tracks:** long-press two tracks, tap the merge button, choose which goes first and name the result. It is saved as a new track and the originals are left untouched.
 - **Trim:** drag the waveform handles or type exact start and end times, preview from any point, add a 1, 2 or 3 second fade, then save as a new track or replace the original.
 - A trimmed copy keeps the original's name with a number, like "Lesson (2)", and the same cover.
+- **Convert video to MP3:** pick any video on your phone, name it, and keep just the audio.
 
 **Look and feel**
 
@@ -79,11 +82,27 @@ Most players want you to sign in, sync to a server or stream everything. Listeny
 
 - No ads, no account, no analytics, no cloud. Everything stays on the phone.
 
+## What it can and can't do
+
+**It can**
+
+- Import audio files, convert videos to MP3, and download from direct links and public Google Drive files.
+- Play in the background, with notification, lock-screen and Bluetooth controls.
+- Organise with albums, playlists, favourites and search, and edit with rename, trim and merge.
+- Work completely offline, and keep every file on your phone.
+
+**It can't (on purpose)**
+
+- Download from streaming or social-media sites. Only direct links to a file work. Those services' terms don't allow it, so Listeny Lite doesn't try.
+- Sync to a cloud account, or stream anything.
+- Share your library with other people or devices.
+- Apply sound effects such as an equaliser, or change the speed or pitch of a recording.
+
 ## Download and install
 
 **Android**
 
-1. On your phone, open the [latest release](https://github.com/mukaddam-ali/Listeny-App/releases/latest) and download **Listeny-Lite-1.3.1.apk**.
+1. On your phone, open the [latest release](https://github.com/mukaddam-ali/Listeny-App/releases/latest) and download **Listeny-Lite-1.6.1.apk**.
 2. Open the file. If Android asks, allow your browser or file manager to install apps from this source.
 3. Tap **Install**, then open Listeny.
 
@@ -94,16 +113,44 @@ Because the app isn't on the Play Store, Google Play Protect may show a warning 
 SHA-256 of the APK, if you'd like to check your download:
 
 ```
-9ad9a1ce3f244093c7ed3e475ed740c85953214aedc463ced1aae045024993cd
+b6a1434f99d9d6193d45f08770f1d06020cb8d32c27e9e087b4a2f856656c5fb
 ```
 
 **iPhone**
 
-There is no iPhone download yet. The iOS version builds, but it hasn't been tested on a real iPhone, so I'm not offering it until it has. The tour below shows how every screen works, so you can see what the app does.
+The iPhone build is an **unsigned IPA** (`Listeny-Lite-unsigned.ipa`), attached to the same release. Apple doesn't allow installing apps outside the App Store without signing, so you sign it yourself with a free tool such as [Sideloadly](https://sideloadly.io) or [AltStore](https://altstore.io):
+
+1. Download the IPA from the [latest release](https://github.com/mukaddam-ali/Listeny-App/releases/latest) to a computer.
+2. Open it in Sideloadly (or AltStore) and sign in with your own Apple ID.
+3. Install it on your iPhone, then trust the developer under Settings, General, VPN & Device Management.
+
+With a free Apple ID the app expires after 7 days and has to be re-signed. The iPhone version is built automatically on Apple hardware, but it hasn't been tested on a real iPhone yet, so expect rough edges. Android is the version I use every day.
 
 ---
 
 ## A tour of the app
+
+### Adding audio
+
+<table>
+<tr>
+<td width="33%" valign="top" align="center">
+<img src="images/18-choose-audio.png" alt="Choose audio" width="250" /><br/>
+<b>Choose audio</b><br/>
+Browse the audio already on your phone by folder, search it, and tick what you want.
+</td>
+<td width="33%" valign="top" align="center">
+<img src="images/19-import-select.png" alt="Select all" width="250" /><br/>
+<b>Select and import</b><br/>
+Select everything in a folder with one tap, or pick tracks one by one.
+</td>
+<td width="33%" valign="top" align="center">
+<img src="images/20-import-done.png" alt="Import finished" width="250" /><br/>
+<b>Done</b><br/>
+A summary of what was added, with a shortcut to play it straight away.
+</td>
+</tr>
+</table>
 
 ### Your library
 
@@ -166,7 +213,7 @@ Play, shuffle, add tracks, and drag the handles to put them in the order you lik
 <td width="33%" valign="top" align="center">
 <img src="images/10-select.png" alt="Multi-select" width="250" /><br/>
 <b>Select several</b><br/>
-Long-press a track to select more, then add them all to a playlist or delete them together.
+Long-press a track to select more, then add them all to a playlist or delete them together. With exactly two selected, a merge button appears.
 </td>
 </tr>
 </table>
@@ -178,7 +225,7 @@ Long-press a track to select more, then add them all to a playlist or delete the
 <td width="33%" valign="top" align="center">
 <img src="images/09-track-menu.png" alt="Track menu" width="250" /><br/>
 <b>Track menu</b><br/>
-Tap the three dots on any track: play now, play next, add to queue or a playlist, favourite, rename, trim or remove.
+Tap the three dots on any track: play now, play next, add to queue or a playlist, favourite, rename, trim or remove. For the track that's playing there's also "Stop after this track".
 </td>
 <td width="33%" valign="top" align="center">
 <img src="images/11-trim.png" alt="Trim" width="250" /><br/>
@@ -189,6 +236,28 @@ Cut a recording down to the part you want. Drag the handles or type exact start 
 <img src="images/12-download.png" alt="Download" width="250" /><br/>
 <b>Download from a link</b><br/>
 Paste a direct link to an audio or video file and Listeny saves it as an MP3.
+</td>
+</tr>
+</table>
+
+### Merge and stop
+
+<table>
+<tr>
+<td width="33%" valign="top" align="center">
+<img src="images/21-merge.png" alt="Merge dialog" width="250" /><br/>
+<b>Merge two tracks</b><br/>
+Pick the order (swap with the arrows), name the new track, and tap Merge.
+</td>
+<td width="33%" valign="top" align="center">
+<img src="images/22-merged.png" alt="Merged track in library" width="250" /><br/>
+<b>A new track</b><br/>
+The merged track appears in your library with the combined length. The two originals stay where they were.
+</td>
+<td width="33%" valign="top" align="center">
+<img src="images/23-stop-after.png" alt="Stop after this track" width="250" /><br/>
+<b>Stop after this track</b><br/>
+The highlighted button on the Now Playing screen. When the track ends, playback stops on that track, ready to replay.
 </td>
 </tr>
 </table>
@@ -243,7 +312,7 @@ You have four ways in, and none of them needs an account.
 | Way in | What it does |
 |---|---|
 | **Import Audio** | Pick files from your phone. MP3, M4A, AAC, WAV, FLAC and AIFF are supported. |
-| **Import video as MP3** | Choose a video you already have and keep just the audio, with its tags. |
+| **Import video as MP3** | Choose a video you already have, name it, and keep just the audio. |
 | **Download** | Paste a direct link to an audio or video file and get an MP3. |
 | **Sync Library** | Optional. Adds the MP3 files already on your phone, without copying them. |
 
@@ -269,7 +338,10 @@ Only for downloading from a link. Everything else works offline.
 It includes an audio converter, which is what lets it turn videos and downloads into MP3.
 
 **Is there an iPhone version?**
-Not yet. See the note under Download.
+Yes, as an unsigned IPA you sign yourself. See Download and install.
+
+**Can I merge more than two tracks?**
+Not at once. Merge two, then merge the result with another.
 
 **Will it replace my existing files?**
 No. Imported files are copied into the app and your originals are left alone. Trimming only replaces the original if you choose "Replace original".

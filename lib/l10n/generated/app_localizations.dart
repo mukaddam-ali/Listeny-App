@@ -1343,6 +1343,84 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Track name'**
   String get importVideoNameHint;
+
+  /// No description provided for @mergeTooltip.
+  ///
+  /// In en, this message translates to:
+  /// **'Merge two tracks'**
+  String get mergeTooltip;
+
+  /// No description provided for @mergeTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Merge two tracks'**
+  String get mergeTitle;
+
+  /// No description provided for @mergeFirst.
+  ///
+  /// In en, this message translates to:
+  /// **'First'**
+  String get mergeFirst;
+
+  /// No description provided for @mergeSecond.
+  ///
+  /// In en, this message translates to:
+  /// **'Second'**
+  String get mergeSecond;
+
+  /// No description provided for @mergeSwap.
+  ///
+  /// In en, this message translates to:
+  /// **'Swap order'**
+  String get mergeSwap;
+
+  /// No description provided for @mergeNameLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'New track name'**
+  String get mergeNameLabel;
+
+  /// No description provided for @mergeConfirm.
+  ///
+  /// In en, this message translates to:
+  /// **'Merge'**
+  String get mergeConfirm;
+
+  /// No description provided for @mergeWorking.
+  ///
+  /// In en, this message translates to:
+  /// **'Merging…'**
+  String get mergeWorking;
+
+  /// No description provided for @mergeSaved.
+  ///
+  /// In en, this message translates to:
+  /// **'Merged track saved'**
+  String get mergeSaved;
+
+  /// No description provided for @mergeFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Couldn\'t merge these tracks'**
+  String get mergeFailed;
+
+  /// No description provided for @mergeDuplicate.
+  ///
+  /// In en, this message translates to:
+  /// **'This merged track is already in your library'**
+  String get mergeDuplicate;
+
+  /// No description provided for @contextMenuStopAfter.
+  ///
+  /// In en, this message translates to:
+  /// **'Stop after this track'**
+  String get contextMenuStopAfter;
+
+  /// No description provided for @contextMenuCancelStopAfter.
+  ///
+  /// In en, this message translates to:
+  /// **'Don’t stop after this track'**
+  String get contextMenuCancelStopAfter;
 }
 
 class _AppLocalizationsDelegate

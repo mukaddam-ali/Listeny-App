@@ -127,8 +127,15 @@ class SongRow extends StatelessWidget {
                     color: NocturneColors.iconMuted,
                     size: 20,
                   ),
-                  padding: EdgeInsets.zero,
-                  constraints: const BoxConstraints(),
+                  // shrinkWrap drops the invisible 48x48 tap-target padding
+                  // (the real source of the extra gap on the right); the
+                  // padding is only on the left/top/bottom, so the tap area
+                  // stays comfortable while the glyph sits flush right.
+                  style: IconButton.styleFrom(
+                    tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                    minimumSize: Size.zero,
+                    padding: const EdgeInsets.fromLTRB(12, 12, 0, 12),
+                  ),
                   tooltip: l10n.songRowOptionsTooltip,
                   onPressed: () => showSongContextMenu(
                     context,

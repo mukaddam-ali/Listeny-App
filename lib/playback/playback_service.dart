@@ -41,6 +41,13 @@ abstract class PlaybackService {
   ValueStream<PlaybackRepeatMode> get repeatMode;
   ValueStream<ProcessingState> get processingState;
 
+  /// Id of the track playback should stop after (pause when it finishes),
+  /// or null when nothing is armed.
+  ValueStream<String?> get stopAfterTrackId;
+
+  /// Arms ([trackId] set) or disarms (null) "stop after this track".
+  void setStopAfterTrack(String? trackId);
+
   /// Replaces the queue, positioned at [startIndex]. [contextName] is what's
   /// shown as "Playing from …" (an album/playlist/artist name, or "Library");
   /// pass null only when there's genuinely nothing to name. Starts playing

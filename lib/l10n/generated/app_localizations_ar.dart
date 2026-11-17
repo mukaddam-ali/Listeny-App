@@ -771,4 +771,43 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get importVideoNameHint => 'اسم المقطع';
+
+  @override
+  String get mergeTooltip => 'دمج مقطعين';
+
+  @override
+  String get mergeTitle => 'دمج مقطعين';
+
+  @override
+  String get mergeFirst => 'الأول';
+
+  @override
+  String get mergeSecond => 'الثاني';
+
+  @override
+  String get mergeSwap => 'عكس الترتيب';
+
+  @override
+  String get mergeNameLabel => 'اسم المقطع الجديد';
+
+  @override
+  String get mergeConfirm => 'دمج';
+
+  @override
+  String get mergeWorking => 'جارٍ الدمج…';
+
+  @override
+  String get mergeSaved => 'تم حفظ المقطع المدموج';
+
+  @override
+  String get mergeFailed => 'تعذّر دمج المقطعين';
+
+  @override
+  String get mergeDuplicate => 'هذا المقطع المدموج موجود بالمكتبة';
+
+  @override
+  String get contextMenuStopAfter => 'توقف بعد هذا المقطع';
+
+  @override
+  String get contextMenuCancelStopAfter => 'إلغاء التوقف بعد هذا المقطع';
 }

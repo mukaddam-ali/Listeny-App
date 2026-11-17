@@ -261,5 +261,18 @@
   "importVideoFromGallery": "From Photos / Gallery",
   "importVideoFromFiles": "From Files",
   "importVideoNameTitle": "Name this track",
-  "importVideoNameHint": "Track name"
+  "importVideoNameHint": "Track name",
+  "mergeTooltip": "Merge two tracks",
+  "mergeTitle": "Merge two tracks",
+  "mergeFirst": "First",
+  "mergeSecond": "Second",
+  "mergeSwap": "Swap order",
+  "mergeNameLabel": "New track name",
+  "mergeConfirm": "Merge",
+  "mergeWorking": "Merging…",
+  "mergeSaved": "Merged track saved",
+  "mergeFailed": "Couldn't merge these tracks",
+  "mergeDuplicate": "This merged track is already in your library",
+  "contextMenuStopAfter": "Stop after this track",
+  "contextMenuCancelStopAfter": "Don’t stop after this track"
 }

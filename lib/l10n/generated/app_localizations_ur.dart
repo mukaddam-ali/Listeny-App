@@ -766,4 +766,43 @@ class AppLocalizationsUr extends AppLocalizations {
 
   @override
   String get importVideoNameHint => 'Track name';
+
+  @override
+  String get mergeTooltip => 'Merge two tracks';
+
+  @override
+  String get mergeTitle => 'Merge two tracks';
+
+  @override
+  String get mergeFirst => 'First';
+
+  @override
+  String get mergeSecond => 'Second';
+
+  @override
+  String get mergeSwap => 'Swap order';
+
+  @override
+  String get mergeNameLabel => 'New track name';
+
+  @override
+  String get mergeConfirm => 'Merge';
+
+  @override
+  String get mergeWorking => 'Merging…';
+
+  @override
+  String get mergeSaved => 'Merged track saved';
+
+  @override
+  String get mergeFailed => 'Couldn\'t merge these tracks';
+
+  @override
+  String get mergeDuplicate => 'This merged track is already in your library';
+
+  @override
+  String get contextMenuStopAfter => 'Stop after this track';
+
+  @override
+  String get contextMenuCancelStopAfter => 'Don’t stop after this track';
 }

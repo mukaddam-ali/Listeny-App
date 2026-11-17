@@ -5,6 +5,7 @@ import 'url_classifier.dart';
 /// URL classes that belong to a provider-specific resolver. A generic
 /// resolver must never contact, probe or hand off URLs of these classes.
 const knownProviderClasses = {
+  UrlClass.youtube,
   UrlClass.instagram,
   UrlClass.facebook,
   UrlClass.googleDrive,

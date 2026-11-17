@@ -118,6 +118,29 @@ Future<void> showSongContextMenu(
                               playback.playNext(track);
                             },
                           ),
+                          // Only meaningful for the track that is playing now.
+                          if (playback.currentTrack.value?.id == track.id)
+                            StreamBuilder<String?>(
+                              stream: playback.stopAfterTrackId,
+                              initialData: playback.stopAfterTrackId.value,
+                              builder: (context, snapshot) {
+                                final armed = snapshot.data == track.id;
+                                return _ActionTile(
+                                  label: armed
+                                      ? l10n.contextMenuCancelStopAfter
+                                      : l10n.contextMenuStopAfter,
+                                  icon: armed
+                                      ? Icons.timer_off_outlined
+                                      : Icons.stop_circle_outlined,
+                                  onTap: () {
+                                    Navigator.pop(sheetContext);
+                                    playback.setStopAfterTrack(
+                                      armed ? null : track.id,
+                                    );
+                                  },
+                                );
+                              },
+                            ),
                           _ActionTile(
                             label: l10n.contextMenuAddToQueue,
                             icon: Icons.queue_music,

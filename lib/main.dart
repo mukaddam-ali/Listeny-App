@@ -21,6 +21,7 @@ import 'library/local_library_sync_service.dart';
 import 'library/link_import_service.dart';
 import 'library/public_music_saver.dart';
 import 'library/media_url_resolver.dart';
+import 'library/provider_capability.dart';
 import 'playback/audio_service_playback_service.dart';
 import 'playback/listeny_audio_handler.dart';
 import 'playback/play_record_gate.dart';
@@ -98,7 +99,7 @@ Future<_AppDependencies> _bootstrap() async {
       // Drive links belong to the Drive resolver (official API only).
       GoogleDriveUrlResolver(client: driveClient),
       directResolver,
-    ]),
+    ], profile: ProviderCapabilityProfile.currentRuntime),
     importService: importService,
     libraryRepository: library,
     publicMusicSaver: PublicMusicSaver(),

@@ -89,6 +89,11 @@ class AudioServicePlaybackService implements PlaybackService {
   ValueStream<ProcessingState> get processingState => _processingState.stream;
   @override
   ValueStream<String?> get contextName => _contextName.stream;
+  @override
+  ValueStream<String?> get stopAfterTrackId => _handler.stopAfterTrackId;
+  @override
+  void setStopAfterTrack(String? trackId) =>
+      _handler.setStopAfterTrack(trackId);
 
   svc.MediaItem _toMediaItem(Track t, [int? playTapRequest]) => svc.MediaItem(
     id: t.id,

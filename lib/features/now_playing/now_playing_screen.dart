@@ -529,6 +529,30 @@ class _UtilityRow extends StatelessWidget {
             );
           },
         ),
+        StreamBuilder<String?>(
+          stream: playback.stopAfterTrackId,
+          initialData: playback.stopAfterTrackId.value,
+          builder: (context, snapshot) {
+            final currentId = playback.currentTrack.value?.id;
+            final armed = currentId != null && snapshot.data == currentId;
+            return Semantics(
+              selected: armed,
+              child: IconButton(
+                icon: Icon(
+                  armed ? Icons.stop_circle : Icons.stop_circle_outlined,
+                  size: 21,
+                  color: armed ? NocturneColors.accent300 : mutedColor,
+                ),
+                tooltip: armed
+                    ? l10n.contextMenuCancelStopAfter
+                    : l10n.contextMenuStopAfter,
+                onPressed: currentId == null
+                    ? null
+                    : () => playback.setStopAfterTrack(armed ? null : currentId),
+              ),
+            );
+          },
+        ),
         IconButton(
           icon: Icon(Icons.speaker_group_outlined, size: 21, color: mutedColor),
           tooltip: l10n.nowPlayingPlaybackDeviceTooltip,
