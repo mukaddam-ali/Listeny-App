@@ -118,11 +118,17 @@ b6a1434f99d9d6193d45f08770f1d06020cb8d32c27e9e087b4a2f856656c5fb
 
 **iPhone**
 
-The iPhone build is an **unsigned IPA** (`Listeny-Lite-unsigned.ipa`), attached to the same release. Apple doesn't allow installing apps outside the App Store without signing, so you sign it yourself with a free tool such as [Sideloadly](https://sideloadly.io) or [AltStore](https://altstore.io):
+The iPhone build is an **unsigned IPA** (`Listeny-Lite-unsigned.ipa`, about 27 MB), attached to the same release. Apple doesn't allow installing apps outside the App Store without signing, so you sign it yourself with a free tool such as [Sideloadly](https://sideloadly.io) or [AltStore](https://altstore.io):
 
 1. Download the IPA from the [latest release](https://github.com/mukaddam-ali/Listeny-App/releases/latest) to a computer.
 2. Open it in Sideloadly (or AltStore) and sign in with your own Apple ID.
 3. Install it on your iPhone, then trust the developer under Settings, General, VPN & Device Management.
+
+SHA-256 of the IPA:
+
+```
+1289f4fe9ff30bf73d5a8d8790abf9d53bc93af11087fce0c6e4acb8aa79a6a4
+```
 
 With a free Apple ID the app expires after 7 days and has to be re-signed. The iPhone version is built automatically on Apple hardware, but it hasn't been tested on a real iPhone yet, so expect rough edges. Android is the version I use every day.
 
